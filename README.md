@@ -1,14 +1,25 @@
 ## Summary
 
+Senior AI Framework Engineer with 6+ years at Intel, specializing in the full AI
+software stack — from graph compilers (oneDNN Graph) and GPU kernel engineering
+(SYCL/Triton/CUTLASS) to LLM inference and memory optimization across
+CPU/GPU/HPU. Core contributor to oneDNN Graph; technical lead for large-model
+memory optimization on Gaudi. Delivered up to 80% latency reduction and 93%+ MMA
+utilization on production kernels.
 
-## Professional skills
+## SKILLS
 
-- Familiar with processor architectures (CPU/GPU/ASIC) and proficient in C++, Python, SYCL, Triton, CUDA, etc.
-- Familiar with AI compilers such as torch.compile and oneDNN Graph; extensive experience in graph compiler development.
-- Familiar with acceleration libraries such as CUTLASS and oneDNN; experienced in using these libraries and developing GPU operators.
-- Familiar with frameworks including PyTorch, DeepSpeed, Megatron-LM, vLLM, and SGLang; experience in framework-level development.
-- Familiar with common deep learning model architectures (CNNs, LLMs); strong experience in LLM performance optimization and memory (VRAM) optimization.
-- Familiar with operator fusion and low-precision quantization methods such as INT8/FP8 and other common model optimization techniques.
+- **Languages**: C/C++, Python, SYCL, Triton, CUDA
+- **Hardware Architectures**: Intel CPU, Intel Xe2/Xe3/Xe4 GPU, Intel Gaudi HPU,
+  NVIDIA Hopper GPU
+- **Compilers & Libraries**: torch.compile, oneDNN Graph, Triton, oneDNN
+- **Frameworks**: PyTorch, DeepSpeed, Megatron-LM, vLLM, SGLang
+- **GPU Kernel Engineering**: GEMM, FlashAttention, LinearAttention (GDN, KDA),
+  Indexer
+- **LLM Inference Optimizations**: Quantization, Kernel Fusion
+- **Memory Optimization**: Graph-based memory optimization, Memory planning, GPU
+  memory management, OOM analysis
+- **Parallelisim**: DP, TP, EP, PP, ZeRO
 
 ## Work experience
 
