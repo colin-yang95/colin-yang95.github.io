@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Colin Yang — AI Framework & GPU Kernel Engineer</title>
+  <meta name="description" content="Senior AI Framework Engineer specializing in AI compilers, GPU kernel engineering, LLM performance and memory optimization across CPU / GPU / HPU platforms." />
+  <meta name="author" content="Colin Yang" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Colin Yang — AI Framework & GPU Kernel Engineer" />
+  <meta property="og:description" content="AI compilers, GPU kernel engineering, LLM performance and memory optimization across CPU / GPU / HPU." />
+  <meta property="og:url" content="https://colin-yang95.github.io/" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/style.css" />
+</head>
+<body>
+  <main class="resume">
+    <!-- ===================== HEADER ===================== -->
+    <header class="header">
+      <div class="header__main">
+        <h1 class="header__name">Colin Yang</h1>
+        <p class="header__title">Senior AI Framework &amp; GPU Kernel Engineer</p>
+        <p class="header__tag">AI Compilers &middot; GPU Kernel Engineering &middot; LLM Performance &amp; Memory Optimization</p>
+      </div>
+      <ul class="header__contact">
+        <li><a href="https://github.com/colin-yang95" target="_blank" rel="noopener">github.com/colin-yang95</a></li>
+        <li><a href="https://colin-yang95.github.io/" target="_blank" rel="noopener">colin-yang95.github.io</a></li>
+      </ul>
+    </header>
+
+    <!-- ===================== SUMMARY ===================== -->
+    <section class="row">
+      <div class="row__label">SUMMARY</div>
+      <div class="row__body">
+        <p>
+          Senior AI Framework Engineer with 6+ years at Intel, specializing in the full AI software stack —
+          from graph compilers (<strong>oneDNN Graph</strong>) and GPU kernel engineering
+          (<strong>SYCL / Triton / CUTLASS</strong>) to LLM inference and memory optimization across
+          <strong>CPU / GPU / HPU</strong> platforms. Core contributor to oneDNN Graph; technical lead for
+          large-model memory optimization on Habana Gaudi. Delivered production kernels reaching
+          <strong>&gt;93% MMA utilization</strong> and up to <strong>80% latency reduction</strong> on real workloads.
+          Active open-source contributor (oneDNN, PyTorch, PaddlePaddle, SGLang) with 2 peer-reviewed publications.
+        </p>
+      </div>
+    </section>
+
+    <!-- ===================== SKILLS ===================== -->
+    <section class="row">
+      <div class="row__label">SKILLS</div>
+      <div class="row__body">
+        <dl class="skills">
+          <dt>GPU Kernel Engineering</dt>
+          <dd>GEMM, FlashAttention, LinearAttention (GDN, KDA), Indexer, SYCL / Triton / CUTLASS-SYCL, MMA / Tensor Core</dd>
+
+          <dt>LLM Inference Optimization</dt>
+          <dd>Quantization (INT8 / FP8), Kernel Fusion, end-to-end performance analysis</dd>
+
+          <dt>Memory Optimization</dt>
+          <dd>Graph-based memory optimization, memory planning, GPU memory management, OOM analysis, VRAM optimization</dd>
+
+          <dt>Compilers &amp; Libraries</dt>
+          <dd>oneDNN Graph, torch.compile, oneDNN, Triton</dd>
+
+          <dt>Frameworks</dt>
+          <dd>PyTorch, DeepSpeed, Megatron-LM, vLLM, SGLang</dd>
+
+          <dt>Parallelism</dt>
+          <dd>DP, TP, EP, PP, ZeRO</dd>
+
+          <dt>Languages</dt>
+          <dd>C / C++, Python, SYCL, Triton, CUDA</dd>
+
+          <dt>Hardware Architectures</dt>
+          <dd>Intel CPU, Intel Xe2 / Xe3 / Xe4 GPU, Intel Gaudi HPU, NVIDIA Hopper GPU</dd>
+        </dl>
+      </div>
+    </section>
+
+    <!-- ===================== WORK EXPERIENCE ===================== -->
+    <section class="row">
+      <div class="row__label">WORK EXPERIENCE</div>
+      <div class="row__body">
+        <div class="entry">
+          <div class="entry__head">
+            <h3 class="entry__title">Intel APAC R&amp;D <span class="entry__org">— Senior AI Framework Engineer</span></h3>
+            <span class="entry__date">2020.07 — Present</span>
+          </div>
+          <p class="entry__desc">
+            AI software framework development and model performance / memory optimization on Intel hardware platforms.
+          </p>
+          <p class="entry__desc">
+            Core contributor to the oneDNN Graph compiler, Intel CPU PaddlePaddle integration, Habana Gaudi PyTorch
+            framework development and large-model optimization, and Intel GPU operator development and large-model
+            optimization; technical lead for Gaudi platform large-model memory optimization and partial performance optimization.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== PROJECT EXPERIENCE ===================== -->
+    <section class="row">
+      <div class="row__label">PROJECT EXPERIENCE</div>
+      <div class="row__body">
+
+        <div class="entry">
+          <div class="entry__head">
+            <h3 class="entry__title">Intel GPU Operator Development &amp; Model Optimization</h3>
+            <span class="entry__date">2025.07 — Present</span>
+          </div>
+          <p class="entry__desc">
+            Develop and optimize operators for large models on Intel GPU platforms; perform end-to-end performance and memory optimizations.
+          </p>
+          <ul class="entry__list">
+            <li><strong>Xe3 GPU:</strong> Continuously developed and optimized operators for mainstream LLMs using SYCL / Triton / CUTLASS-SYCL — e.g., DeepSeek-V3.2 indexer operators such as <code>mqa_logits</code> and <code>topk_per_row</code> — achieving significant performance improvements.</li>
+            <li><strong>Next-gen Xe4 GPU:</strong> Validated new hardware features and developed / optimized critical operators, including Flash Attention V3 / V4 prefill operators reaching <strong>&gt;93% MMA hardware utilization</strong>.</li>
+            <li><strong>Integration:</strong> Integrated operators into inference frameworks such as vLLM for end-to-end accuracy verification and performance analysis, iterating to optimize.</li>
+          </ul>
+        </div>
+
+        <div class="entry">
+          <div class="entry__head">
+            <h3 class="entry__title">Habana Gaudi HPU Framework Development &amp; Model Optimization</h3>
+            <span class="entry__date">2023.09 — 2025.07</span>
+          </div>
+          <p class="entry__desc">
+            Develop core PyTorch functionality on the Habana Gaudi HPU platform and optimize for large-model workloads.
+          </p>
+          <ul class="entry__list">
+            <li>Developed core PyTorch modules — Operator / Device / Memory / Stream / Event — and contributed to torch.compile features (identifying and fixing graph breaks, enabling CompiledAutograd).</li>
+            <li>Built several graph-based memory optimization methods on top of torch.compile; on BERT, GPT-J and LLaMA, observed memory savings up to <strong>~15%</strong>.</li>
+            <li>Analyzed and optimized memory usage across <strong>30+ training / inference workloads</strong> covering LLaMA, DeepSeek-V3.1, GLM and frameworks including DeepSpeed, Megatron-LM, vLLM and SGLang.</li>
+            <li>Developed memory analysis tools for event recording, analysis and visualization; delivered to external customers.</li>
+            <li>Led optimization of DeepSeek-R1 (SGLang) for single-node 8&times; Gaudi3 inference using a TP8 + EP8 + FP8_KV_Cache scheme, reaching performance comparable to mainstream inference frameworks.</li>
+            <li>Served as technical lead for memory optimization and sole approver for this area in the China team.</li>
+          </ul>
+        </div>
+
+        <div class="entry">
+          <div class="entry__head">
+            <h3 class="entry__title">PaddlePaddle Framework Development &amp; Optimization on Xeon CPU <span class="entry__org">(with Baidu)</span></h3>
+            <span class="entry__date">2023.03 — 2023.09</span>
+          </div>
+          <p class="entry__desc">
+            Integrate and optimize PaddlePaddle on Intel Xeon CPU platforms.
+          </p>
+          <ul class="entry__list">
+            <li>Integrated oneDNN v3.1 into PaddlePaddle and used oneDNN INT8 primitives to accelerate common CNN models; ResNet-50 INT8 inference throughput reached <strong>~3.2&times;</strong> that of FP32.</li>
+          </ul>
+        </div>
+
+        <div class="entry">
+          <div class="entry__head">
+            <h3 class="entry__title">oneDNN Graph Compiler Development</h3>
+            <span class="entry__date">2020.07 — 2023.09</span>
+          </div>
+          <p class="entry__desc">
+            Developed the oneDNN Graph compiler on top of oneDNN primitives to compile and optimize computation graphs from
+            higher-level frameworks. Front/back-end decoupled design, multiple backends (DNNL / XeTLA) and CPU / GPU devices;
+            applied in TensorFlow / PyTorch / XLA.
+          </p>
+          <ul class="entry__list">
+            <li>Owned backend API design and implementation; led core DNNL backend architecture (DNNL IR, IR lowering, kernel fusion, layout propagation, memory planning and other optimization passes).</li>
+            <li>Designed and implemented large-graph compilation in the DNNL backend, cutting overhead from small-graph scheduling and frequent memory operations — reduced ResNet50 INT8 latency by <strong>~15%</strong> and DenseNet121 FP32 latency by <strong>~80%</strong> on CPU.</li>
+            <li>Designed and implemented GPU aggressive fusion and codegen that automatically fuses elementwise / reduction operators into efficient GPU executables; on Xe2-HPG GPUs improved InstanceNorm graph performance to <strong>~3.6&times;</strong> that of the oneDNN primitive.</li>
+          </ul>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ===================== EDUCATION ===================== -->
+    <section class="row">
+      <div class="row__label">EDUCATION</div>
+      <div class="row__body">
+        <div class="entry">
+          <div class="entry__head">
+            <h3 class="entry__title">Huazhong University of Science and Technology (HUST)</h3>
+            <span class="entry__date">2017.09 — 2020.06</span>
+          </div>
+          <p class="entry__desc"><em>M.Eng. in Optical Engineering — Machine Vision and Image Processing</em></p>
+          <ul class="entry__list">
+            <li>Low-light image enhancement: trained a UNet-based model using Generative Adversarial Networks (GANs).</li>
+            <li>Model optimization &amp; deployment: optimized the trained UNet, deployed on NVIDIA GTX 1060, and built the real-time camera control, image acquisition system and GUI.</li>
+            <li>DSP optimization: optimized image-processing operators and INT8 LeNet on TI C64X DSP.</li>
+          </ul>
+        </div>
+
+        <div class="entry">
+          <div class="entry__head">
+            <h3 class="entry__title">Huazhong University of Science and Technology (HUST)</h3>
+            <span class="entry__date">2013.09 — 2017.06</span>
+          </div>
+          <p class="entry__desc"><em>B.Eng. in Optoelectronic Information Science and Engineering</em></p>
+          <ul class="entry__list">
+            <li>National Undergraduate Electronic Design Contest — Hubei Province Third Prize (2014).</li>
+            <li>RoboMaster Robotics Competition — Huazhong regional champion (2015).</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== OPEN SOURCE ===================== -->
+    <section class="row">
+      <div class="row__label">OPEN-SOURCE</div>
+      <div class="row__body">
+        <ul class="tags">
+          <li>oneDNN contributor</li>
+          <li>PyTorch contributor</li>
+          <li>PaddlePaddle contributor</li>
+          <li>SGLang contributor</li>
+          <li>vllm-xpu-kernel contributor</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===================== PUBLICATIONS ===================== -->
+    <section class="row">
+      <div class="row__label">PUBLICATIONS</div>
+      <div class="row__body">
+        <ul class="entry__list entry__list--flush">
+          <li>“A Low-light Image Enhancement Method with Ability to Suppress Noise” — <em>Neurocomputing</em>.</li>
+          <li>“Robot Visual Guide with Fourier-Mellin Based Visual Tracking” — <em>Frontiers of Optoelectronics</em>.</li>
+        </ul>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <p>&copy; 2026 Colin Yang &middot; Built with plain HTML &amp; CSS</p>
+    </footer>
+  </main>
+</body>
+</html>
