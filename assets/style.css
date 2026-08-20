@@ -96,10 +96,12 @@ a:hover { text-decoration: underline; }
 .row:last-of-type { border-bottom: none; }
 
 .row__label {
-  font-size: 12px;
+  font-size: 12.5px;
   font-weight: 700;
-  letter-spacing: 0.12em;
-  color: var(--label);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent);
+  line-height: 1.4;
   padding-top: 3px;
 }
 
@@ -111,18 +113,24 @@ a:hover { text-decoration: underline; }
   margin: 0;
   display: grid;
   grid-template-columns: 1fr;
-  gap: 10px 0;
+  gap: 8px 0;
 }
-.skills dt {
-  font-weight: 600;
-  color: var(--fg);
-  font-size: 13px;
-  margin-bottom: 2px;
-}
-.skills dd {
-  margin: 0 0 4px;
-  color: var(--muted);
+.skill {
   font-size: 14px;
+  line-height: 1.55;
+}
+.skill dt {
+  display: inline;
+  font-weight: 700;
+  color: var(--accent);
+}
+.skill dt::after {
+  content: ":";
+}
+.skill dd {
+  display: inline;
+  margin: 0 0 0 4px;
+  color: var(--muted);
 }
 
 /* ===================== ENTRIES ===================== */
@@ -139,12 +147,20 @@ a:hover { text-decoration: underline; }
 
 .entry__title {
   margin: 0;
-  font-size: 15px;
-  font-weight: 600;
+  font-size: 18px;
+  font-weight: 700;
 }
 .entry__org {
   font-weight: 400;
   color: var(--muted);
+}
+
+.entry__role {
+  margin: 2px 0 0;
+  font-weight: 600;
+  font-style: italic;
+  font-size: 14px;
+  color: var(--fg);
 }
 
 .entry__date {
@@ -157,6 +173,21 @@ a:hover { text-decoration: underline; }
 .entry__desc {
   margin: 6px 0 8px;
   color: var(--muted);
+}
+
+/* Sub-entries (projects under a company) — flat, distinguished by typography */
+.subentries {
+  margin-top: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.entry__subtitle {
+  margin: 0;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  color: var(--accent);
 }
 
 .entry__list {
