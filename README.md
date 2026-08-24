@@ -39,13 +39,27 @@ optimization across Intel CPU / GPU / HPU platforms.
 
 #### Gaudi HPU PyTorch Development & SGLang Workload Optimization — 2023.09 — 2025.07
 
-- Develop core PyTorch functionality on the Habana Gaudi HPU platform and optimize for large-model workloads.
-- Developed core modules in PyTorch such as Operator / Device / Memory / Stream / Event, and contributed to torch.compile features (e.g., identifying and fixing graph breaks, enabling CompiledAutograd).
-- Built several graph-based memory optimization methods on top of torch.compile; on models such as BERT, GPT-J, and LLaMA, memory savings up to ~15% were observed.
-- Analyzed and optimized memory usage across over 30 training/inference workloads covering models like LLaMA, DeepSeek-V3.1, GLM and frameworks including DeepSpeed, Megatron-LM, vLLM, and SGLang.
-- Developed memory analysis tools for event recording, analysis, and visualization; delivered to external customers.
-- Led optimization of the DeepSeek-R1 model (based on SGLang) for single-node 8× Gaudi3 inference using a TP8+EP8+FP8_KV_Cache scheme, achieving performance comparable to mainstream inference frameworks (detailed metrics omitted).
-- Served as the technical lead for memory optimization and was appointed the sole approver for this area in the China team.
+- The [Intel Gaudi PyTorch
+  Bridge](https://github.com/HabanaAI/gaudi-pytorch-bridge) enables PyTorch to
+  run on the [Intel Gaudi AI Accelerator
+  (HPU)](https://www.intel.com/content/www/us/en/products/details/processors/ai-accelerators/gaudi.html)
+  for large-scale LLM training and inference. Worked as a core developer on
+  PyTorch development and LLM workload optimization for the Gaudi platform,
+  serving as the technical lead for memory optimization.
+- Developed core modules in PyTorch such as memory management, stream / event
+  management, and contributed to torch.compile features, including fixing dynamo
+  graph breaks, enabling CompiledAutograd, and developing optimization passes.
+- Analyzed and optimized memory usage across 30+ LLM training/inference
+  workloads (LLaMA, DeepSeek-V3.1, GLM) spanning different frameworks such as
+  DeepSpeed, Megatron-LM, vLLM, and SGLang; built graph analysis based memory
+  optimization methods on top of torch.compile, achieving up to ~15% peak memory
+  reduction for various models.
+- Developed memory analysis tools for device memory recording, analysis, and
+  visualization; delivered to external customers.
+- Optimized DeepSeek-R1 model performance on
+  [SGLang](https://github.com/HabanaAI/sglang-fork) for single-node 8× Gaudi3
+  inference using a TP8 + EP8 + FP8 KV-cache scheme, reaching ~90% of the
+  output-token throughput of Intel's optimized vLLM on the same 8× Gaudi3 setup.
 
 #### oneDNN Graph Compiler Development — 2020.07 — 2023.09
 
