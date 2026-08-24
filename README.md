@@ -47,11 +47,6 @@ optimization across Intel CPU / GPU / HPU platforms.
 - Led optimization of the DeepSeek-R1 model (based on SGLang) for single-node 8× Gaudi3 inference using a TP8+EP8+FP8_KV_Cache scheme, achieving performance comparable to mainstream inference frameworks (detailed metrics omitted).
 - Served as the technical lead for memory optimization and was appointed the sole approver for this area in the China team.
 
-#### CPU PaddlePaddle Framework Development & Workload Optimization — 2023.03 — 2023.09
-
-- Support Baidu customers in integrating and optimizing PaddlePaddle on Intel Xeon CPU platforms.
-- Integrated oneDNN v3.1 into PaddlePaddle and used oneDNN INT8 primitives to accelerate common CNN models; e.g., ResNet-50 INT8 inference throughput reached approximately 3.2× that of FP32.
-
 #### oneDNN Graph Compiler Development — 2020.07 — 2023.09
 
 - [oneDNN Graph](https://uxlfoundation.github.io/oneDNN/graph_extension.html) is
@@ -65,10 +60,14 @@ optimization across Intel CPU / GPU / HPU platforms.
 - Designed and implemented DNNL backend architecture, including DNNL IR, IR
   lowering, kernel fusion, layout propagation, memory planning and other
   optimizations.
+- Designed and implemented INT8 quantization optimization in the DNNL backend,
+  enabling low-precision inference across a wide range of key benchmark models
+  (e.g., ResNet50, BERT, DLRM) with up to ~3× throughput over FP32 on Intel SPR
+  CPU.
 - Designed and implemented the large-graph compilation in the DNNL backend,
   significantly reducing overhead from small-graph scheduling and frequent
   memory operations; Reduced ResNet50 INT8 latency by ~15% and DenseNet121 FP32
-  latency by ~80% on SPR Xeon CPU.
+  latency by ~80% on Intel SPR CPU.
 - Designed and implemented the GPU aggressive fusion and codegen in the DNNL
   backend that automatically fuses elementwise/reduction operators and generates
   efficient GPU kernels; Improved InstanceNorm performance to ~3.6× that of
