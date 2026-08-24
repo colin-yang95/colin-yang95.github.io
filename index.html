@@ -116,12 +116,12 @@
                 <span class="entry__date">2020.07 — 2023.09</span>
               </div>
               <ul class="entry__list">
-                <li><a href="https://uxlfoundation.github.io/oneDNN/graph_extension.html" target="_blank" rel="noopener">oneDNN Graph</a> is a graph compiler that extends oneDNN with a graph API to compile and optimize computation graphs from higher-level frameworks. It is <a href="https://pytorch.org/blog/accelerating-inference/" target="_blank" rel="noopener">integrated into PyTorch 2.0</a> to accelerate x86-64 inference. Contributed as a core team member (~10 engineers), owning the DNNL backend and backend API.</li>
+                <li><a href="https://uxlfoundation.github.io/oneDNN/graph_extension.html" target="_blank" rel="noopener">oneDNN Graph</a> is a graph compiler that extends oneDNN with a graph API to compile and optimize computation graphs from higher-level frameworks. It is <a href="https://pytorch.org/blog/accelerating-inference/" target="_blank" rel="noopener">integrated into PyTorch</a> to accelerate model inference. Contributed as a core team member, owning the DNNL backend and backend API.</li>
                 <li>Designed and implemented the backend API, which was adopted as the integration interface for all backends including DNNL, XeTLA and other backends.</li>
-                <li>Designed and implemented the DNNL backend architecture, including DNNL IR, IR lowering, kernel fusion, layout propagation, memory planning and other optimizations.</li>
+                <li>Designed and implemented DNNL backend architecture, including DNNL IR, IR lowering, kernel fusion, layout propagation, memory planning and other optimizations.</li>
                 <li>Designed and implemented INT8 quantization optimization in the DNNL backend, enabling low-precision inference across a wide range of key benchmark models (e.g., ResNet50, BERT, DLRM) with up to <strong>~3&times;</strong> throughput over FP32 on Intel SPR CPU.</li>
-                <li>Designed and implemented large-graph compilation in the DNNL backend, significantly reducing overhead from small-graph scheduling and frequent memory operations; reduced ResNet50 INT8 latency by <strong>~15%</strong> and DenseNet121 FP32 latency by <strong>~80%</strong> on Intel SPR CPU.</li>
-                <li>Designed and implemented GPU aggressive fusion and codegen in the DNNL backend that automatically fuses elementwise / reduction operators and generates efficient GPU kernels; improved InstanceNorm performance to <strong>~3.6&times;</strong> that of the oneDNN primitive on Intel ATS-M GPU.</li>
+                <li>Designed and implemented the large-graph compilation in the DNNL backend, significantly reducing overhead from small-graph scheduling and frequent memory operations; reduced ResNet50 INT8 latency by <strong>~15%</strong> and DenseNet121 FP32 latency by <strong>~80%</strong> on Intel SPR CPU.</li>
+                <li>Designed and implemented the GPU aggressive fusion and codegen in the DNNL backend that automatically fuses elementwise / reduction operators and generates efficient GPU kernels; improved InstanceNorm performance to <strong>~3.6&times;</strong> that of the oneDNN primitive on Intel ATS-M GPU.</li>
               </ul>
             </div>
 
