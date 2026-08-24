@@ -14,7 +14,7 @@ development (torch.compile, oneDNN Graph).
 - **GPU Kernel Engineering**: SYCL, Triton, SYCL-TLA; GEMM, FlashAttention,
   LinearAttention; Intel/Nvidia GPU architecture; Performance modeling and
   profiling
-- **AI Compilers**: oneDNN Graph, torch.compile; IR, operator fusion, layout
+- **AI Compiler Development**: oneDNN Graph, torch.compile; IR, operator fusion, layout
   propagation, memory planning
 - **DL Framework Development**: PyTorch (core modules, torch.fx, dynamo,
   torch.compile), PaddlePaddle
@@ -27,8 +27,8 @@ development (torch.compile, oneDNN Graph).
 
 Senior AI Framework Software Engineer
 
-Kernel/Compiler/Framework development and model performance/memory optimization
-across Intel CPU / GPU / HPU platforms.
+AI infrastructure (kernel / compiler / framework) development and workload
+optimization across Intel CPU / GPU / HPU platforms.
 
 #### GPU Kernel Optimization & vLLM Workload Optimization — 2025.07 — Present
 
@@ -63,7 +63,7 @@ across Intel CPU / GPU / HPU platforms.
 
 ### Huazhong University of Science and Technology (HUST)
 
-- 2017.09 — 2020.06 — Master of Optical Engineering (Machine Vision and Image Processing)
+- 2017.09 — 2020.06 — Master (Optical Engineering — Machine Vision)
 
 - Research on Low-light Image Enhancement: trained a UNet based low-light image
   enhancement model by using Generative Adversarial Networks (GANs) method.
@@ -75,7 +75,7 @@ across Intel CPU / GPU / HPU platforms.
 
 ### Huazhong University of Science and Technology (HUST)
 
-- 2013.09 — 2017.06 — Bachelor of Optoelectronic Information Science and Engineering
+- 2013.09 — 2017.06 — Bachelor (Optoelectronic Information Science and Engineering)
 
 - National Undergraduate Electronic Design Contest — Hubei Province Third Prize (2014)
 - Robomaster Robotics Competition — Huazhong regional champion (2015)
@@ -90,5 +90,5 @@ across Intel CPU / GPU / HPU platforms.
 
 ## Publications
 
-- "A Lowlight Image Enhancement Method with Ability to Suppress Noise" — Neurocomputing
+- "A Low-light Image Enhancement Method with Ability to Suppress Noise" — Neurocomputing
 - "Robot Visual Guide with Fourier-Mellin Based Visual Tracking" — Frontiers of Optoelectronics
