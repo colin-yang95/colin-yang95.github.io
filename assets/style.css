@@ -4,7 +4,7 @@
   --fg: #1a1d24;
   --muted: #5b6472;
   --label: #8a94a6;
-  --accent: #0b6bcb;
+  --accent: #005eb8;
   --line: #e6e9ee;
   --code-bg: #f3f5f8;
   --max-width: 900px;
@@ -121,7 +121,6 @@ a:hover { text-decoration: underline; }
   gap: 8px 0;
 }
 .skill {
-  font-size: 14px;
   line-height: 1.55;
 }
 .skill dt {
@@ -135,7 +134,7 @@ a:hover { text-decoration: underline; }
 .skill dd {
   display: inline;
   margin: 0 0 0 4px;
-  color: var(--muted);
+  color: var(--fg);
 }
 
 /* ===================== ENTRIES ===================== */
@@ -264,11 +263,9 @@ code {
 
 /* ===================== PRINT ===================== */
 @media print {
-  :root { --accent: #000; }
-  body { font-size: 11px; background: #fff; }
+  body { font-size: 11px; background: #fff; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
   .resume { max-width: none; margin: 0; padding: 0; border: none; border-radius: 0; box-shadow: none; }
-  .row { break-inside: avoid; padding: 14px 0; }
-  .entry { break-inside: avoid; }
-  a { color: #000; }
+  .row { padding: 14px 0; }
+  .subentry { break-inside: avoid; }
   .footer { display: none; }
 }

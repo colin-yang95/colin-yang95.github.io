@@ -3,7 +3,7 @@
 Senior AI Framework Software Engineer at Intel with 6+ years of experience in
 building high-performance AI systems across CPU/GPU/HPU platforms. Working
 across the full AI software stack — from LLM workload optimization (vLLM/SGLang)
-and deep-learning framework development (PyTorch/PaddlePaddle) to
+and deep-learning framework development (PyTorch) to
 high-performance GPU kernel engineering (SYCL/Triton/SYCL-TLA) and AI compiler
 development (torch.compile, oneDNN Graph).
 
@@ -17,7 +17,7 @@ development (torch.compile, oneDNN Graph).
 - **AI Compiler Development**: oneDNN Graph, torch.compile; IR, operator fusion, layout
   propagation, memory planning
 - **DL Framework Development**: PyTorch (core modules, torch.fx, dynamo,
-  torch.compile), PaddlePaddle
+  torch.compile)
 - **Languages & Hardware Platforms**: C/C++, Python, SYCL, Triton, CUDA; CPU,
   GPU, HPU, Embedded DSP
 
@@ -127,7 +127,6 @@ optimization across Intel CPU / GPU / HPU platforms.
 
 - oneDNN contributor
 - PyTorch contributor
-- PaddlePaddle contributor
 - SGLang contributor
 - vllm-xpu-kernel contributor
 
