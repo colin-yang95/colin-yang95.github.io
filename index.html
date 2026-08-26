@@ -87,10 +87,11 @@
                 <span class="entry__date">2025.07 — Present</span>
               </div>
               <ul class="entry__list">
-                <li>Develop and optimize operators for large models on Intel GPU platforms; perform end-to-end performance and memory optimizations.</li>
-                <li><strong>Xe3 GPU:</strong> Continuously developed and optimized operators for mainstream LLMs using SYCL / Triton / SYCL-TLA — e.g., DeepSeek-V3.2 indexer operators such as <code>mqa_logits</code> and <code>topk_per_row</code> — achieving significant performance improvements.</li>
-                <li><strong>Next-gen Xe4 GPU:</strong> Validated new hardware features and developed / optimized critical operators, including Flash Attention V3 / V4 prefill operators reaching <strong>&gt;93% MMA hardware utilization</strong>.</li>
-                <li>Integrated operators into inference frameworks such as vLLM for end-to-end accuracy verification and performance analysis, iterating to optimize.</li>
+                <li>Develop high-performance LLM kernels and optimize vLLM serving workloads on Intel Xe GPU, shipping kernels for popular LLMs across three generations of GPU architecture <strong>(Xe2 / Xe3 / Xe4)</strong> using Triton / SYCL / SYCL-TLA.</li>
+                <li>Optimized the SYCL-TLA based <strong>Gated DeltaNet (GDN)</strong> kernel on Xe2 GPU, achieving a <strong>geomean 1.6&times; speedup</strong> over the previous hand-tuned implementation across a range of shapes.</li>
+                <li>Developed key kernels for Hunyuan3-FP8 / DeepSeek-V4 models on Xe3 GPU, including <strong>BF16/FP8 GQA attention prefill/decode</strong> (<strong>~50% of roofline</strong>), the <code>mHC</code> <strong>skinny GEMM</strong> (TF32 + matrix engine, <strong>~90% of roofline</strong>), and <code>FP8/MXFP4 mqa_logits</code> (<strong>~40% of roofline</strong> in FP8, <strong>~40% of roofline</strong> in MXFP4).</li>
+                <li>Validated new hardware features (Async DMA, Async MMA, Cluster, DSMEM) for the next-generation Xe4 GPU and prototyped critical kernels. The optimized FlashAttention V3 prefill kernel reached <strong>93% of roofline</strong>.</li>
+                <li>Built a <strong>kernel-optimization agent</strong> on top of opencode harness, by adding custom command, loop control, kernel knowledge base and several optimization-related skills/tools; in early cases it delivered a <strong>1.8&times; speedup</strong> for <code>mqa_logits</code> on Xe2 and reached <strong>~85% of roofline</strong> for memory-bound operators (e.g. RMSNorm) within a single optimization round.</li>
               </ul>
             </div>
 

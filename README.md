@@ -32,10 +32,25 @@ optimization across Intel CPU / GPU / HPU platforms.
 
 #### GPU Kernel Optimization & vLLM Workload Optimization — 2025.07 — Present
 
-- Develop and optimize operators for large models on Intel GPU platforms; perform end-to-end performance and memory optimizations.
-- For Xe3 GPU architecture: continuously developed and optimized various operators in mainstream LLM models using SYCL/Triton/SYCL-TLA, e.g., DeepSeek-V3.2 indexer-related operators such as mqa_logits and topk_per_row, achieving significant performance improvements (detailed metrics omitted).
-- For next-generation Xe4 GPU: validated new hardware features and developed/optimized critical operators, including Flash Attention V3/V4 prefill operators with MMA hardware utilization exceeding 93%.
-- Integrated developed operators into inference frameworks such as vLLM for end-to-end accuracy verification and performance analysis, and iteratively optimized them.
+- Develop high-performance LLM kernels and optimize vLLM serving workloads on
+  Intel Xe GPU, shipping kernels for popular LLMs across three generations of
+  GPU architecture **(Xe2 / Xe3 / Xe4)** using Triton / SYCL / SYCL-TLA.
+- Optimized the SYCL-TLA based **Gated DeltaNet (GDN)** kernel on Xe2 GPU,
+  achieving a **geomean 1.6× speedup** over the previous hand-tuned
+  implementation across a range of shapes.
+- Developed key kernels for Hunyuan3-FP8 / DeepSeek-V4 models on Xe3 GPU,
+  including **BF16/FP8 GQA attention prefill/decode** (**~50% of roofline**),
+  the `mHC` **skinny GEMM** (TF32 + matrix engine, **~90% of roofline**), and
+  `FP8/MXFP4 mqa_logits` (**~40% of roofline** in FP8, **~40% of roofline** in
+  MXFP4).
+- Validated new hardware features (Async DMA, Async MMA, Cluster, DSMEM) for the
+  next-generation Xe4 GPU and prototyped critical kernels. The optimized
+  FlashAttention V3 prefill kernel reached **93% of roofline**.
+- Built a **kernel-optimization agent** on top of opencode harness, by adding
+  custom command, loop control, kernel knowledge base and several
+  optimization-related skills/tools; in early cases it delivered a **1.8×
+  speedup** for `mqa_logits` on Xe2 and reached **~85% of roofline** for
+  memory-bound operators (e.g. RMSNorm) within a single optimization round.
 
 #### Gaudi HPU PyTorch Development & SGLang Workload Optimization — 2023.09 — 2025.07
 
