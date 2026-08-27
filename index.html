@@ -88,10 +88,10 @@
               </div>
               <ul class="entry__list">
                 <li>Develop high-performance LLM kernels and optimize vLLM serving workloads on Intel Xe GPU, shipping kernels for popular LLMs across three generations of GPU architecture <strong>(Xe2 / Xe3 / Xe4)</strong> using Triton / SYCL / SYCL-TLA.</li>
-                <li>Optimized the SYCL-TLA based <strong>Gated DeltaNet (GDN)</strong> kernel on Xe2 GPU, achieving a <strong>geomean 1.6&times; speedup</strong> over the previous hand-tuned implementation across a range of shapes.</li>
-                <li>Developed key kernels for Hunyuan3-FP8 / DeepSeek-V4 models on Xe3 GPU, including <strong>BF16/FP8 GQA attention prefill/decode</strong> (<strong>~50% of roofline</strong>), the <code>mHC</code> <strong>skinny GEMM</strong> (TF32 + matrix engine, <strong>~90% of roofline</strong>), and <code>FP8/MXFP4 mqa_logits</code> (<strong>~40% of roofline</strong> in FP8, <strong>~40% of roofline</strong> in MXFP4).</li>
+                <li>Optimized the SYCL-TLA based Gated DeltaNet (GDN) kernel on Xe2 GPU, achieving a <strong>1.6&times; speedup</strong> over the previous hand-tuned implementation across a range of shapes.</li>
+                <li>Developed key kernels for Hunyuan3-FP8 / DeepSeek-V4 models on Xe3 GPU, including BF16/FP8 GQA attention prefill/decode (<strong>~50% of roofline</strong>), the mHC skinny GEMM (TF32 + matrix engine, <strong>~90% of roofline</strong>), and FP8/MXFP4 mqa_logits (<strong>~40% of roofline</strong> in FP8, <strong>~40% of roofline</strong> in MXFP4).</li>
                 <li>Validated new hardware features (Async DMA, Async MMA, Cluster, DSMEM) for the next-generation Xe4 GPU and prototyped critical kernels. The optimized FlashAttention V3 prefill kernel reached <strong>93% of roofline</strong>.</li>
-                <li>Built a <strong>kernel-optimization agent</strong> on top of opencode harness, by adding custom command, loop control, kernel knowledge base and several optimization-related skills/tools; in early cases it delivered a <strong>1.8&times; speedup</strong> for <code>mqa_logits</code> on Xe2 and reached <strong>~85% of roofline</strong> for memory-bound operators (e.g. RMSNorm) within a single optimization round.</li>
+                <li>Built a <strong>kernel-optimization agent</strong> on top of opencode harness, by adding custom command, loop control, kernel knowledge base and several optimization-related skills/tools; in early cases it delivered a <strong>1.8&times; speedup</strong> for FP8 mqa_logits on Xe2 and reached <strong>~85% of roofline</strong> for most memory-bound operators (e.g. RMSNorm) within a single optimization round.</li>
               </ul>
             </div>
 
@@ -145,9 +145,9 @@
                 <span class="entry__date">2017.09 — 2020.06</span>
               </div>
               <ul class="entry__list">
-                <li>Low-light image enhancement: trained a UNet-based model using Generative Adversarial Networks (GANs).</li>
-                <li>Model optimization &amp; deployment: optimized the trained UNet, deployed on NVIDIA GTX 1060, and built the real-time camera control, image acquisition system and GUI.</li>
-                <li>DSP optimization: optimized image-processing operators and INT8 LeNet on TI C64X DSP.</li>
+                <li>Trained a low-light image enhancement model (UNet based) from scratch using a novel Generative Adversarial Networks based method.</li>
+                <li>Optimized the trained model with TensorRT and deployed on NVIDIA GTX1060, built the real-time camera control, image acquisition system and host GUI.</li>
+                <li>Optimized common image-processing operators, optimized and deployed an INT8 LeNet on TI C64X DSP, for machine vision defect detection in industry.</li>
               </ul>
             </div>
 
