@@ -15,6 +15,30 @@
 
 html { -webkit-text-size-adjust: 100%; }
 
+/* ===================== LANGUAGE TOGGLE ===================== */
+body.lang-en [lang="zh"] { display: none; }
+body.lang-zh [lang="en"] { display: none; }
+
+.lang-toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 100;
+  padding: 8px 16px;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  color: #fff;
+  background: var(--accent);
+  border: none;
+  border-radius: 999px;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(16, 24, 40, 0.18);
+  transition: background 0.15s ease, transform 0.1s ease;
+}
+.lang-toggle:hover { background: #004a94; }
+.lang-toggle:active { transform: scale(0.96); }
+
 body {
   margin: 0;
   background: var(--page-bg);
@@ -264,4 +288,5 @@ code {
   .entry__subtitle { break-after: avoid; }
   .entry__list li { break-inside: avoid; }
   .footer { display: none; }
+  .lang-toggle { display: none; }
 }

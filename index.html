@@ -20,25 +20,26 @@
   <link rel="stylesheet" href="assets/style.css" />
 </head>
 <body>
+  <button id="lang-toggle" class="lang-toggle" type="button" aria-label="Switch language">中文</button>
   <main class="resume">
     <!-- ===================== HEADER ===================== -->
     <header class="header">
       <div class="header__main">
-        <h1 class="header__name">Colin Yang <span class="header__alt">(Qun Yang)</span></h1>
-        <p class="header__title">Senior AI Framework Software Engineer</p>
-        <p class="header__tag">AI Compiler &middot; GPU Kernel &middot; PyTorch Framework &middot; LLM Optimization</p>
+        <h1 class="header__name">Colin Yang <span class="header__alt"><span lang="en">(Qun Yang)</span><span lang="zh">(杨群)</span></span></h1>
+        <p class="header__title"><span lang="en">Senior AI Framework Software Engineer</span><span lang="zh">资深 AI 框架软件工程师</span></p>
+        <p class="header__tag"><span lang="en">AI Compiler &middot; GPU Kernel &middot; PyTorch Framework &middot; LLM Optimization</span><span lang="zh">AI 编译器 &middot; GPU Kernel &middot; PyTorch 框架 &middot; LLM 优化</span></p>
       </div>
       <ul class="header__contact">
         <li><a href="mailto:colin_y@126.com">colin_y@126.com</a></li>
         <li><a href="https://github.com/YangQun1" target="_blank" rel="noopener">github.com/YangQun1</a></li>
-        <li>Shanghai, China</li>
+        <li><span lang="en">Shanghai, China</span><span lang="zh">中国 · 上海</span></li>
       </ul>
     </header>
 
     <!-- ===================== SUMMARY ===================== -->
     <section class="row">
-      <div class="row__label">SUMMARY</div>
-      <div class="row__body">
+      <div class="row__label"><span lang="en">SUMMARY</span><span lang="zh">概述</span></div>
+      <div class="row__body" lang="en">
         <p>
           Senior AI Framework Software Engineer at Intel with 6+ years of experience in building
           high-performance AI software systems across CPU / GPU / HPU platforms. Working across the full AI
@@ -46,12 +47,19 @@
           to GPU kernel engineering (Triton / SYCL / SYCL-TLA) and AI compiler development (torch.compile, oneDNN Graph).
         </p>
       </div>
+      <div class="row__body" lang="zh">
+        <p>
+          Intel 资深 AI 框架软件工程师, 拥有 6 年以上跨 CPU / GPU / HPU 平台构建高性能 AI
+          软件系统的经验. 工作贯穿完整的 AI 软件栈——从 LLM 优化 (vLLM / SGLang), 框架开发 (PyTorch),
+          到 GPU kernel 工程 (Triton / SYCL / SYCL-TLA) 与 AI 编译器开发 (torch.compile, oneDNN Graph).
+        </p>
+      </div>
     </section>
 
     <!-- ===================== SKILLS ===================== -->
     <section class="row">
-      <div class="row__label">SKILLS</div>
-      <div class="row__body">
+      <div class="row__label"><span lang="en">SKILLS</span><span lang="zh">技能</span></div>
+      <div class="row__body" lang="en">
         <dl class="skills">
           <div class="skill"><dt>LLM Inference &amp; Serving</dt><dd>vLLM, SGLang, quantization (INT8/FP8), parallelism (TP/EP/PP)</dd></div>
           <div class="skill"><dt>GPU Kernel Engineering</dt><dd>Triton, SYCL-TLA, Cute; GEMM, FlashAttention, LinearAttention; Intel/Nvidia GPU architecture; performance modeling and profiling</dd></div>
@@ -60,18 +68,27 @@
           <div class="skill"><dt>Languages &amp; Hardware Platforms</dt><dd>C / C++, Python, SYCL, Triton, CUDA; CPU, GPU, HPU</dd></div>
         </dl>
       </div>
+      <div class="row__body" lang="zh">
+        <dl class="skills">
+          <div class="skill"><dt>LLM 推理与部署</dt><dd>vLLM, SGLang, 量化 (INT8/FP8), 并行 (TP/EP/PP)</dd></div>
+          <div class="skill"><dt>GPU Kernel 工程</dt><dd>Triton, SYCL-TLA, Cute; GEMM, FlashAttention, LinearAttention; Intel/Nvidia GPU 架构; 性能建模与 profiling</dd></div>
+          <div class="skill"><dt>AI 编译器开发</dt><dd>oneDNN Graph, torch.compile, MLIR; operator fusion, layout propagation, memory planning, codegen</dd></div>
+          <div class="skill"><dt>深度学习框架开发</dt><dd>PyTorch 核心模块, eager, torch.compile, torch.fx, torch dynamo</dd></div>
+          <div class="skill"><dt>编程语言与硬件平台</dt><dd>C / C++, Python, SYCL, Triton, CUDA; CPU, GPU, HPU</dd></div>
+        </dl>
+      </div>
     </section>
 
     <!-- ===================== WORK EXPERIENCE ===================== -->
     <section class="row">
-      <div class="row__label">WORK EXPERIENCE</div>
+      <div class="row__label"><span lang="en">WORK EXPERIENCE</span><span lang="zh">工作经历</span></div>
       <div class="row__body">
         <div class="entry">
           <div class="entry__head">
             <h3 class="entry__title">Intel</h3>
           </div>
           <div class="entry__head">
-            <p class="entry__role">Senior AI Framework Software Engineer</p>
+            <p class="entry__role"><span lang="en">Senior AI Framework Software Engineer</span><span lang="zh">资深 AI 框架软件工程师</span></p>
             <span class="entry__date">2020.07 — Present</span>
           </div>
 
@@ -79,44 +96,66 @@
 
             <div class="subentry">
               <div class="entry__head">
-                <h4 class="entry__subtitle">GPU Kernel Optimization &amp; vLLM Workload Optimization</h4>
+                <h4 class="entry__subtitle"><span lang="en">GPU Kernel Optimization &amp; vLLM Workload Optimization</span><span lang="zh">GPU Kernel 优化与 vLLM 工作负载优化</span></h4>
                 <span class="entry__date">2025.07 — Present</span>
               </div>
-              <ul class="entry__list">
+              <ul class="entry__list" lang="en">
                 <li>Develop high-performance LLM kernels and optimize vLLM serving workloads on Intel Xe GPU, shipping kernels for popular LLMs across three generations of GPU architecture <strong>(Xe2 / Xe3 / Xe4)</strong> using Triton / SYCL / SYCL-TLA.</li>
                 <li>Optimized the SYCL-TLA based Gated DeltaNet (GDN) kernel on Xe2 GPU, achieving a <strong>1.6&times; speedup</strong> over the previous hand-tuned implementation across a range of shapes.</li>
                 <li>Developed key kernels for Hunyuan3-FP8 / DeepSeek-V4 models on Xe3 GPU, including BF16/FP8 GQA attention prefill/decode (<strong>~50% of roofline</strong>), the mHC skinny GEMM (TF32 + matrix engine, <strong>~90% of roofline</strong>), and FP8/MXFP4 mqa_logits (<strong>~40% of roofline</strong> in FP8 and MXFP4).</li>
                 <li>Validated new hardware features (Async DMA, Async MMA, Cluster, DSMEM) for the next-generation Xe4 GPU and prototyped critical kernels. The optimized FlashAttention V3 prefill kernel reached <strong>93% of roofline</strong>.</li>
                 <li>Built a <strong>kernel-optimization agent</strong> on top of opencode harness, by adding custom command, loop control, kernel knowledge base and several optimization-related skills/tools; in early cases it delivered a <strong>1.8&times; speedup</strong> for FP8 mqa_logits on Xe2 and reached <strong>~85% of roofline</strong> for most memory-bound operators (e.g. RMSNorm) within a single optimization round.</li>
               </ul>
+              <ul class="entry__list" lang="zh">
+                <li>在 Intel Xe GPU 上开发高性能 LLM kernel 并优化 vLLM serving 工作负载, 使用 Triton / SYCL / SYCL-TLA 为主流 LLM 交付覆盖<strong>三代 GPU 架构 (Xe2 / Xe3 / Xe4)</strong>的 kernel.</li>
+                <li>在 Xe2 GPU 上优化基于 SYCL-TLA 的 Gated DeltaNet (GDN) kernel, 在多种 shape 下相较此前手工调优实现取得 <strong>1.6&times; 加速</strong>.</li>
+                <li>在 Xe3 GPU 上为 Hunyuan3-FP8 / DeepSeek-V4 模型开发关键 kernel, 包括 BF16/FP8 GQA attention prefill/decode (<strong>~50% roofline</strong>), mHC skinny GEMM (TF32 + matrix engine, <strong>~90% roofline</strong>), 以及 FP8/MXFP4 mqa_logits (FP8 与 MXFP4 均 <strong>~40% roofline</strong>).</li>
+                <li>为下一代 Xe4 GPU 验证新硬件特性 (Async DMA, Async MMA, Cluster, DSMEM) 并对关键 kernel 进行原型开发; 优化后的 FlashAttention V3 prefill kernel 达到 <strong>93% roofline</strong>.</li>
+                <li>基于 opencode harness 构建了一个 <strong>kernel 优化 agent</strong>, 加入自定义命令, 循环控制, kernel 知识库以及若干优化相关的 skills/tools; 在早期案例中为 Xe2 上的 FP8 mqa_logits 带来 <strong>1.8&times; 加速</strong>, 并在单轮优化内让多数访存受限算子 (如 RMSNorm) 达到 <strong>~85% roofline</strong>.</li>
+              </ul>
             </div>
 
             <div class="subentry">
               <div class="entry__head">
-                <h4 class="entry__subtitle">Gaudi HPU PyTorch Development &amp; SGLang Workload Optimization</h4>
+                <h4 class="entry__subtitle"><span lang="en">Gaudi HPU PyTorch Development &amp; SGLang Workload Optimization</span><span lang="zh">Gaudi HPU PyTorch 开发与 SGLang 工作负载优化</span></h4>
                 <span class="entry__date">2023.09 — 2025.07</span>
               </div>
-              <ul class="entry__list">
+              <ul class="entry__list" lang="en">
                 <li>The <a href="https://github.com/HabanaAI/gaudi-pytorch-bridge" target="_blank" rel="noopener">Intel Gaudi PyTorch Bridge</a> enables PyTorch to run on the <a href="https://www.intel.com/content/www/us/en/products/details/processors/ai-accelerators/gaudi.html" target="_blank" rel="noopener">Intel Gaudi AI Accelerator (HPU)</a> for large-scale LLM training and inference. Worked as a core developer on PyTorch development and LLM workload optimization for the Gaudi platform, serving as the technical lead for memory optimization.</li>
                 <li>Developed core modules in PyTorch such as memory management, stream / event management, and contributed to torch.compile features, including fixing dynamo graph breaks, enabling CompiledAutograd, and developing optimization passes.</li>
                 <li>Analyzed and optimized memory usage across <strong>30+ LLM training / inference workloads</strong> (LLaMA, DeepSeek-V3.1, GLM) spanning different frameworks such as DeepSpeed, Megatron-LM, vLLM, and SGLang; built graph analysis based memory optimization methods on top of torch.compile, achieving up to <strong>~15% peak memory reduction</strong> for various models.</li>
                 <li>Developed memory analysis tools for device memory recording, analysis, and visualization; delivered to external customers.</li>
                 <li>Optimized DeepSeek-R1 model performance on <a href="https://github.com/HabanaAI/sglang-fork" target="_blank" rel="noopener">SGLang</a> for single-node 8&times; Gaudi3 inference using a TP8 + EP8 + FP8 KV-cache scheme, reaching <strong>~90%</strong> of the output-token throughput of Intel's optimized vLLM on the same 8&times; Gaudi3 setup.</li>
               </ul>
+              <ul class="entry__list" lang="zh">
+                <li><a href="https://github.com/HabanaAI/gaudi-pytorch-bridge" target="_blank" rel="noopener">Intel Gaudi PyTorch Bridge</a> 使 PyTorch 能够运行在 <a href="https://www.intel.com/content/www/us/en/products/details/processors/ai-accelerators/gaudi.html" target="_blank" rel="noopener">Intel Gaudi AI 加速器 (HPU)</a> 上, 用于大规模 LLM 训练与推理. 作为核心开发者负责 Gaudi 平台的 PyTorch 开发与 LLM 工作负载优化, 并担任内存优化的技术负责人.</li>
+                <li>开发 PyTorch 核心模块, 如内存管理, stream / event 管理, 并参与 torch.compile 相关特性, 包括修复 dynamo graph break, 启用 CompiledAutograd, 开发优化 pass.</li>
+                <li>分析并优化 <strong>30+ LLM 训练 / 推理工作负载</strong> (LLaMA, DeepSeek-V3.1, GLM) 的内存占用, 覆盖 DeepSpeed, Megatron-LM, vLLM, SGLang 等多种框架; 基于 torch.compile 构建了基于图分析的内存优化方法, 为多种模型实现最高 <strong>~15% 峰值内存下降</strong>.</li>
+                <li>开发用于设备内存记录, 分析与可视化的内存分析工具, 并交付给外部客户.</li>
+                <li>在 <a href="https://github.com/HabanaAI/sglang-fork" target="_blank" rel="noopener">SGLang</a> 上优化 DeepSeek-R1 单节点 8&times; Gaudi3 推理性能, 采用 TP8 + EP8 + FP8 KV-cache 方案, 达到同等 8&times; Gaudi3 配置下 Intel 优化版 vLLM 输出 token 吞吐的 <strong>~90%</strong>.</li>
+              </ul>
             </div>
 
             <div class="subentry">
               <div class="entry__head">
-                <h4 class="entry__subtitle">oneDNN Graph Compiler Development</h4>
+                <h4 class="entry__subtitle"><span lang="en">oneDNN Graph Compiler Development</span><span lang="zh">oneDNN Graph 编译器开发</span></h4>
                 <span class="entry__date">2020.07 — 2023.09</span>
               </div>
-              <ul class="entry__list">
+              <ul class="entry__list" lang="en">
                 <li><a href="https://uxlfoundation.github.io/oneDNN/graph_extension.html" target="_blank" rel="noopener">oneDNN Graph</a> is a graph compiler that extends oneDNN with a graph API to compile and optimize computation graphs from higher-level frameworks. It is <a href="https://pytorch.org/blog/accelerating-inference/" target="_blank" rel="noopener">integrated into PyTorch</a> to accelerate model inference. Contributed as a core team member, owning the DNNL backend and backend API.</li>
                 <li>Designed the backend API, which was adopted as the integration interface for all backends including DNNL, XeTLA and others.</li>
                 <li>Architected the DNNL backend end to end — defining its DNNL IR and building the compilation passes on top, including IR lowering, kernel fusion, layout propagation and memory planning.</li>
                 <li>Enabled INT8 quantized inference in the DNNL backend across a wide range of key benchmark models (e.g., ResNet50, BERT, DLRM), reaching up to <strong>~3&times;</strong> throughput over FP32 on Intel SPR CPU.</li>
                 <li>Introduced large-graph compilation to cut overhead from small-graph scheduling and frequent memory operations, reducing ResNet50 INT8 latency by <strong>~15%</strong> and DenseNet121 FP32 latency by <strong>~80%</strong> on Intel SPR CPU.</li>
                 <li>Built GPU aggressive fusion and codegen that automatically fuses elementwise / reduction operators into efficient GPU kernels, improving InstanceNorm to <strong>~3.6&times;</strong> the oneDNN primitive on Intel ATS-M GPU.</li>
+              </ul>
+              <ul class="entry__list" lang="zh">
+                <li><a href="https://uxlfoundation.github.io/oneDNN/graph_extension.html" target="_blank" rel="noopener">oneDNN Graph</a> 是一个图编译器, 通过图 API 扩展 oneDNN, 用于编译和优化来自上层框架的计算图. 它已 <a href="https://pytorch.org/blog/accelerating-inference/" target="_blank" rel="noopener">集成进 PyTorch</a> 以加速模型推理. 作为核心团队成员, 负责 DNNL backend 与 backend API.</li>
+                <li>设计了 backend API, 并被采纳为所有 backend (包括 DNNL, XeTLA 等) 的集成接口.</li>
+                <li>端到端设计并实现了 DNNL backend——定义其 DNNL IR 并在其上构建编译 pass, 包括 IR lowering, kernel fusion, layout propagation 与 memory planning.</li>
+                <li>在 DNNL backend 中为一系列关键基准模型 (如 ResNet50, BERT, DLRM) 启用 INT8 量化推理, 在 Intel SPR CPU 上相较 FP32 实现最高 <strong>~3&times;</strong> 的吞吐.</li>
+                <li>引入大图编译以降低小图调度与频繁内存操作带来的开销, 在 Intel SPR CPU 上将 ResNet50 INT8 延迟降低 <strong>~15%</strong>, DenseNet121 FP32 延迟降低 <strong>~80%</strong>.</li>
+                <li>构建 GPU aggressive fusion 与 codegen, 自动将 elementwise / reduction 算子融合为高效 GPU kernel, 在 Intel ATS-M GPU 上将 InstanceNorm 提升至 oneDNN primitive 的 <strong>~3.6&times;</strong>.</li>
               </ul>
             </div>
 
@@ -127,31 +166,37 @@
 
     <!-- ===================== EDUCATION ===================== -->
     <section class="row">
-      <div class="row__label">EDUCATION</div>
+      <div class="row__label"><span lang="en">EDUCATION</span><span lang="zh">教育经历</span></div>
       <div class="row__body">
         <div class="entry">
           <div class="entry__head">
-            <h3 class="entry__title">Huazhong University of Science and Technology</h3>
+            <h3 class="entry__title"><span lang="en">Huazhong University of Science and Technology</span><span lang="zh">华中科技大学</span></h3>
           </div>
 
           <div class="subentries">
             <div class="subentry">
               <div class="entry__head">
-                <p class="entry__role">Master (Optical Engineering — Machine Vision)</p>
+                <p class="entry__role"><span lang="en">Master (Optical Engineering — Machine Vision)</span><span lang="zh">硕士 (光学工程 — 机器视觉)</span></p>
                 <span class="entry__date">2017.09 — 2020.06</span>
               </div>
-              <ul class="entry__list">
+              <ul class="entry__list" lang="en">
                 <li>Trained a low-light image enhancement CNN from scratch with a novel GAN-based method (published in <em>Neurocomputing</em>); deployed it with TensorRT on NVIDIA GTX1060 GPU; built a real-time image acquisition system and GUI; deployed image-processing operators and an INT8 LeNet on TI DSP for industrial machine-vision defect detection.</li>
+              </ul>
+              <ul class="entry__list" lang="zh">
+                <li>从零训练用于低光照图像增强的 CNN, 提出一种新颖的基于 GAN 的方法 (发表于 <em>Neurocomputing</em>); 使用 TensorRT 在 NVIDIA GTX1060 GPU 上部署; 构建实时图像采集系统与 GUI; 在 TI DSP 上部署图像处理算子与 INT8 LeNet, 用于工业机器视觉缺陷检测.</li>
               </ul>
             </div>
 
             <div class="subentry">
               <div class="entry__head">
-                <p class="entry__role">Bachelor (Optoelectronic Information Science and Engineering)</p>
+                <p class="entry__role"><span lang="en">Bachelor (Optoelectronic Information Science and Engineering)</span><span lang="zh">学士 (光电信息科学与工程)</span></p>
                 <span class="entry__date">2013.09 — 2017.06</span>
               </div>
-              <ul class="entry__list">
+              <ul class="entry__list" lang="en">
                 <li>RoboMaster Robotics Competition — East Regional 1st prize &amp; national 2nd prize; National Electronic Design Contest — Hubei 3rd prize.</li>
+              </ul>
+              <ul class="entry__list" lang="zh">
+                <li>RoboMaster 机甲大师赛——东部赛区一等奖 &amp; 全国二等奖; 全国电子设计竞赛——湖北赛区三等奖.</li>
               </ul>
             </div>
           </div>
@@ -161,8 +206,8 @@
 
     <!-- ===================== OPEN SOURCE ===================== -->
     <section class="row">
-      <div class="row__label">OPEN-SOURCE CONTRIBUTIONS</div>
-      <div class="row__body">
+      <div class="row__label"><span lang="en">OPEN-SOURCE CONTRIBUTIONS</span><span lang="zh">开源贡献</span></div>
+      <div class="row__body" lang="en">
         <dl class="skills">
           <div class="skill"><dt><a href="https://github.com/uxlfoundation/oneDNN/commits/main/?author=YangQun1" target="_blank" rel="noopener">oneDNN</a></dt><dd>backend API and DNNL backend</dd></div>
           <div class="skill"><dt><a href="https://github.com/pytorch/pytorch/commits/main/?author=YangQun1" target="_blank" rel="noopener">PyTorch</a></dt><dd>torch.compile / FX graph</dd></div>
@@ -170,11 +215,19 @@
           <div class="skill"><dt><a href="https://github.com/sgl-project/sglang/commits/main/?author=YangQun1" target="_blank" rel="noopener">SGLang</a></dt><dd>Intel Gaudi HPU enablement</dd></div>
         </dl>
       </div>
+      <div class="row__body" lang="zh">
+        <dl class="skills">
+          <div class="skill"><dt><a href="https://github.com/uxlfoundation/oneDNN/commits/main/?author=YangQun1" target="_blank" rel="noopener">oneDNN</a></dt><dd>backend API 与 DNNL backend</dd></div>
+          <div class="skill"><dt><a href="https://github.com/pytorch/pytorch/commits/main/?author=YangQun1" target="_blank" rel="noopener">PyTorch</a></dt><dd>torch.compile / FX graph</dd></div>
+          <div class="skill"><dt><a href="https://github.com/vllm-project/vllm-xpu-kernels/commits/main/?author=YangQun1" target="_blank" rel="noopener">vllm-xpu-kernels</a></dt><dd>Intel XPU LLM kernel</dd></div>
+          <div class="skill"><dt><a href="https://github.com/sgl-project/sglang/commits/main/?author=YangQun1" target="_blank" rel="noopener">SGLang</a></dt><dd>Intel Gaudi HPU enablement</dd></div>
+        </dl>
+      </div>
     </section>
 
     <!-- ===================== PUBLICATIONS ===================== -->
     <section class="row">
-      <div class="row__label">PUBLICATIONS</div>
+      <div class="row__label"><span lang="en">PUBLICATIONS</span><span lang="zh">论文</span></div>
       <div class="row__body">
         <ul class="entry__list entry__list--flush">
           <li>“A Low-light Image Enhancement Method with Ability to Suppress Noise” — <em>Neurocomputing</em>.</li>
@@ -187,5 +240,22 @@
       <p>&copy; 2026 Colin Yang</p>
     </footer>
   </main>
+  <script>
+    (function () {
+      var body = document.body;
+      var btn = document.getElementById('lang-toggle');
+      function setLang(lang) {
+        body.className = 'lang-' + lang;
+        btn.textContent = lang === 'en' ? '中文' : 'EN';
+        try { localStorage.setItem('resume-lang', lang); } catch (e) {}
+      }
+      btn.addEventListener('click', function () {
+        setLang(body.classList.contains('lang-en') ? 'zh' : 'en');
+      });
+      var saved;
+      try { saved = localStorage.getItem('resume-lang'); } catch (e) {}
+      setLang(saved === 'zh' ? 'zh' : 'en');
+    })();
+  </script>
 </body>
 </html>
