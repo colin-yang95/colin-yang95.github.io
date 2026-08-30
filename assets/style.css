@@ -92,20 +92,20 @@ a:hover { text-decoration: underline; }
 
 /* ===================== ROW LAYOUT ===================== */
 .row {
+  display: grid;
+  grid-template-columns: var(--label-width) 1fr;
+  gap: 28px;
   padding: 18px 0;
 }
 .row:last-of-type { border-bottom: none; }
 
 .row__label {
-  font-size: 16px;
+  font-size: 13px;
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--accent);
-  line-height: 1.4;
-  margin-bottom: 12px;
-  padding-bottom: 6px;
-  border-bottom: 1px solid var(--line);
+  line-height: 1.5;
 }
 
 .row__body > p { margin: 0 0 10px; }
@@ -119,42 +119,15 @@ a:hover { text-decoration: underline; }
   gap: 8px 0;
 }
 
-/* Inline flowing list (open-source contributions) */
-.os-list {
-  margin: 0;
-  line-height: 1.8;
-}
-.os-list .skill {
-  display: inline;
-}
-.os-list .skill:not(:last-child)::after {
-  content: ";\00a0\00a0";
-  color: var(--muted);
-}
-.os-list .skill dt {
-  display: inline;
-  font-weight: 700;
-  color: var(--fg);
-}
-.os-list .skill dt::after {
-  content: "\00a0(";
-  color: var(--muted);
-  font-weight: 400;
-}
-.os-list .skill dd {
-  display: inline;
-  margin: 0;
-  color: var(--muted);
-}
-.os-list .skill dd::after {
-  content: ")";
-}
 .skill {
   line-height: 1.55;
 }
 .skill dt {
   display: inline;
   font-weight: 600;
+  color: var(--fg);
+}
+.skill dt a {
   color: var(--fg);
 }
 .skill dt::after {
@@ -262,10 +235,15 @@ code {
     box-shadow: none;
   }
   .row {
-    gap: 8px;
+    display: block;
     padding: 20px 0;
   }
-  .row__label { padding-top: 0; }
+  .row__label {
+    font-size: 15px;
+    margin-bottom: 10px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid var(--line);
+  }
   .header { align-items: flex-start; }
   .header__contact { text-align: left; }
   .header__name { font-size: 25px; }
@@ -275,7 +253,15 @@ code {
 @media print {
   body { font-size: 11px; background: #fff; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
   .resume { max-width: none; margin: 0; padding: 0; border: none; border-radius: 0; box-shadow: none; }
-  .row { padding: 14px 0; }
-  .subentry { break-inside: avoid; }
+  .row { display: block; padding: 14px 0; }
+  .row__label {
+    font-size: 13px;
+    margin-bottom: 8px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid var(--line);
+  }
+  .subentry { break-inside: auto; }
+  .entry__subtitle { break-after: avoid; }
+  .entry__list li { break-inside: avoid; }
   .footer { display: none; }
 }
