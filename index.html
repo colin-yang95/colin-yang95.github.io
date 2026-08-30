@@ -24,12 +24,13 @@
     <!-- ===================== HEADER ===================== -->
     <header class="header">
       <div class="header__main">
-        <h1 class="header__name">Colin Yang</h1>
+        <h1 class="header__name">Colin Yang <span class="header__alt">(Qun Yang)</span></h1>
         <p class="header__title">Senior AI Framework Software Engineer</p>
         <p class="header__tag">AI Compiler &middot; GPU Kernel &middot; PyTorch Framework &middot; LLM Optimization</p>
       </div>
       <ul class="header__contact">
         <li><a href="mailto:colin_y@126.com">colin_y@126.com</a></li>
+        <li><a href="https://github.com/YangQun1" target="_blank" rel="noopener">github.com/YangQun1</a></li>
         <li>Shanghai, China</li>
       </ul>
     </header>
@@ -40,10 +41,9 @@
       <div class="row__body">
         <p>
           Senior AI Framework Software Engineer at Intel with 6+ years of experience in building
-          high-performance AI systems across CPU / GPU / HPU platforms. Working across the full AI
-          software stack — from LLM workload optimization (vLLM / SGLang) and deep-learning framework
-          development (PyTorch) to high-performance GPU kernel engineering
-          (SYCL / Triton / SYCL-TLA) and AI compiler development (torch.compile, oneDNN Graph).
+          high-performance AI software systems across CPU / GPU / HPU platforms. Working across the full AI
+          software stack — from LLM optimization (vLLM / SGLang) and framework development (PyTorch)
+          to GPU kernel engineering (Triton / SYCL / SYCL-TLA) and AI compiler development (torch.compile, oneDNN Graph).
         </p>
       </div>
     </section>
@@ -57,7 +57,7 @@
           <div class="skill"><dt>GPU Kernel Engineering</dt><dd>Triton, SYCL-TLA, Cute; GEMM, FlashAttention, LinearAttention; Intel/Nvidia GPU architecture; performance modeling and profiling</dd></div>
           <div class="skill"><dt>AI Compiler Development</dt><dd>oneDNN Graph, torch.compile, MLIR; operator fusion, layout propagation, memory planning, codegen</dd></div>
           <div class="skill"><dt>DL Framework Development</dt><dd>PyTorch core modules, eager, torch.compile, torch.fx, torch dynamo</dd></div>
-          <div class="skill"><dt>Languages &amp; Hardware Platforms</dt><dd>C / C++, Python, SYCL, Triton, CUDA; CPU, GPU, HPU, DSP</dd></div>
+          <div class="skill"><dt>Languages &amp; Hardware Platforms</dt><dd>C / C++, Python, SYCL, Triton, CUDA; CPU, GPU, HPU</dd></div>
         </dl>
       </div>
     </section>
@@ -116,11 +116,11 @@
               </div>
               <ul class="entry__list">
                 <li><a href="https://uxlfoundation.github.io/oneDNN/graph_extension.html" target="_blank" rel="noopener">oneDNN Graph</a> is a graph compiler that extends oneDNN with a graph API to compile and optimize computation graphs from higher-level frameworks. It is <a href="https://pytorch.org/blog/accelerating-inference/" target="_blank" rel="noopener">integrated into PyTorch</a> to accelerate model inference. Contributed as a core team member, owning the DNNL backend and backend API.</li>
-                <li>Designed and implemented the backend API, which was adopted as the integration interface for all backends including DNNL, XeTLA and other backends.</li>
-                <li>Designed and implemented DNNL backend architecture, including DNNL IR, IR lowering, kernel fusion, layout propagation, memory planning and other optimizations.</li>
-                <li>Designed and implemented INT8 quantization optimization in the DNNL backend, enabling low-precision inference across a wide range of key benchmark models (e.g., ResNet50, BERT, DLRM) with up to <strong>~3&times;</strong> throughput over FP32 on Intel SPR CPU.</li>
-                <li>Designed and implemented the large-graph compilation in the DNNL backend, significantly reducing overhead from small-graph scheduling and frequent memory operations; reduced ResNet50 INT8 latency by <strong>~15%</strong> and DenseNet121 FP32 latency by <strong>~80%</strong> on Intel SPR CPU.</li>
-                <li>Designed and implemented the GPU aggressive fusion and codegen in the DNNL backend that automatically fuses elementwise / reduction operators and generates efficient GPU kernels; improved InstanceNorm performance to <strong>~3.6&times;</strong> that of the oneDNN primitive on Intel ATS-M GPU.</li>
+                <li>Designed the backend API, which was adopted as the integration interface for all backends including DNNL, XeTLA and others.</li>
+                <li>Architected the DNNL backend end to end — defining its DNNL IR and building the compilation passes on top, including IR lowering, kernel fusion, layout propagation and memory planning.</li>
+                <li>Enabled INT8 quantized inference in the DNNL backend across a wide range of key benchmark models (e.g., ResNet50, BERT, DLRM), reaching up to <strong>~3&times;</strong> throughput over FP32 on Intel SPR CPU.</li>
+                <li>Introduced large-graph compilation to cut overhead from small-graph scheduling and frequent memory operations, reducing ResNet50 INT8 latency by <strong>~15%</strong> and DenseNet121 FP32 latency by <strong>~80%</strong> on Intel SPR CPU.</li>
+                <li>Built GPU aggressive fusion and codegen that automatically fuses elementwise / reduction operators into efficient GPU kernels, improving InstanceNorm to <strong>~3.6&times;</strong> the oneDNN primitive on Intel ATS-M GPU.</li>
               </ul>
             </div>
 
@@ -141,24 +141,23 @@
           <div class="subentries">
             <div class="subentry">
               <div class="entry__head">
-                <p class="entry__role">Master (Optical Engineering — Machine Vision)</p>
+                <p class="entry__role">Master (Optical Engineering — Machine Vision) · Admitted by recommendation</p>
                 <span class="entry__date">2017.09 — 2020.06</span>
               </div>
               <ul class="entry__list">
-                <li>Trained a low-light image enhancement model (UNet based) from scratch using a novel Generative Adversarial Networks based method.</li>
-                <li>Optimized the trained model with TensorRT and deployed on NVIDIA GTX1060, built the real-time camera control, image acquisition system and host GUI.</li>
-                <li>Optimized common image-processing operators, optimized and deployed an INT8 LeNet on TI C64X DSP, for machine vision defect detection in industry.</li>
+                <li>Trained a low-light image enhancement CNN model from scratch using a novel Generative Adversarial Networks based method (published in <em>Neurocomputing</em>).</li>
+                <li>Optimized and deployed the trained CNN model with TensorRT on NVIDIA GTX1060 GPU, and built the real-time image acquisition system and GUI on host.</li>
+                <li>Optimized and deployed common image-processing operators and an INT8 LeNet on TI DSP, for machine vision defect detection in industry.</li>
               </ul>
             </div>
 
             <div class="subentry">
               <div class="entry__head">
-                <p class="entry__role">Bachelor (Optoelectronic Information Science and Engineering)</p>
+                <p class="entry__role">Bachelor (Optoelectronic Information Science and Engineering) · GPA 89.0/100 (Rank 36/341)</p>
                 <span class="entry__date">2013.09 — 2017.06</span>
               </div>
               <ul class="entry__list">
-                <li>National Undergraduate Electronic Design Contest — Hubei Province Third Prize.</li>
-                <li>RoboMaster Robotics Competition — Huazhong Regional Champion.</li>
+                <li>RoboMaster Robotics Competition — East Regional 1st prize &amp; national 2nd prize; National Electronic Design Contest — Hubei 3rd prize.</li>
               </ul>
             </div>
           </div>
@@ -170,12 +169,13 @@
     <section class="row">
       <div class="row__label">OPEN-SOURCE CONTRIBUTIONS</div>
       <div class="row__body">
-        <ul class="tags">
-          <li>oneDNN contributor</li>
-          <li>PyTorch contributor</li>
-          <li>SGLang contributor</li>
-          <li>vllm-xpu-kernel contributor</li>
-        </ul>
+        <dl class="os-list">
+          <div class="skill"><dt><a href="https://github.com/uxlfoundation/oneDNN/commits/main/?author=YangQun1" target="_blank" rel="noopener">oneDNN</a></dt><dd>backend API and DNNL backend</dd></div>
+          <div class="skill"><dt><a href="https://github.com/pytorch/pytorch/commits/main/?author=YangQun1" target="_blank" rel="noopener">PyTorch</a></dt><dd>torch.compile / FX graph</dd></div>
+          <div class="skill"><dt><a href="https://github.com/PaddlePaddle/Paddle/commits/develop/?author=YangQun1" target="_blank" rel="noopener">PaddlePaddle</a></dt><dd>oneDNN kernels and integration</dd></div>
+          <div class="skill"><dt><a href="https://github.com/vllm-project/vllm-xpu-kernels/commits/main/?author=YangQun1" target="_blank" rel="noopener">vllm-xpu-kernels</a></dt><dd>Intel XPU LLM kernels</dd></div>
+          <div class="skill"><dt><a href="https://github.com/sgl-project/sglang/commits/main/?author=YangQun1" target="_blank" rel="noopener">SGLang</a></dt><dd>Intel Gaudi HPU enablement</dd></div>
+        </dl>
       </div>
     </section>
 
