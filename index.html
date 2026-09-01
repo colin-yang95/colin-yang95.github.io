@@ -62,7 +62,7 @@
         <dl class="skills">
           <div class="skill"><dt>LLM Inference &amp; Serving</dt><dd>vLLM, SGLang, quantization (INT8/FP8), parallelism (TP/EP/PP)</dd></div>
           <div class="skill"><dt>GPU Kernel Engineering</dt><dd>Triton, SYCL-TLA, Cute; GEMM, FlashAttention, LinearAttention; Intel/Nvidia GPU architecture; roofline performance modeling, simulator, and profiling</dd></div>
-          <div class="skill"><dt>AI Compiler Development</dt><dd>oneDNN Graph, torch.compile, MLIR; operator fusion, layout propagation, memory planning, codegen</dd></div>
+          <div class="skill"><dt>AI Compiler Development</dt><dd>oneDNN Graph, torch.compile; operator fusion, layout propagation, memory planning, codegen; familiar with MLIR</dd></div>
           <div class="skill"><dt>DL Framework Development</dt><dd>PyTorch core modules, eager, torch.compile, torch.fx, torch dynamo</dd></div>
           <div class="skill"><dt>Languages &amp; Hardware Platforms</dt><dd>C / C++, Python, SYCL, Triton, CUDA; CPU, GPU, HPU</dd></div>
         </dl>
@@ -71,7 +71,7 @@
         <dl class="skills">
           <div class="skill"><dt>LLM 推理与部署</dt><dd>vLLM, SGLang, 量化 (INT8/FP8), 并行 (TP/EP/PP)</dd></div>
           <div class="skill"><dt>GPU Kernel 工程</dt><dd>Triton, SYCL-TLA, Cute; GEMM, FlashAttention, LinearAttention; Intel/Nvidia GPU 架构; roofline 性能建模, simulator 与 profiling</dd></div>
-          <div class="skill"><dt>AI 编译器开发</dt><dd>oneDNN Graph, torch.compile, MLIR; operator fusion, layout propagation, memory planning, codegen</dd></div>
+          <div class="skill"><dt>AI 编译器开发</dt><dd>oneDNN Graph, torch.compile; operator fusion, layout propagation, memory planning, codegen; 了解 MLIR</dd></div>
           <div class="skill"><dt>深度学习框架开发</dt><dd>PyTorch 核心模块, eager, torch.compile, torch.fx, torch dynamo</dd></div>
           <div class="skill"><dt>编程语言与硬件平台</dt><dd>C / C++, Python, SYCL, Triton, CUDA; CPU, GPU, HPU</dd></div>
         </dl>
@@ -121,14 +121,14 @@
               </div>
               <ul class="entry__list" lang="en">
                 <li>The <a href="https://github.com/HabanaAI/gaudi-pytorch-bridge" target="_blank" rel="noopener">Intel Gaudi PyTorch Bridge</a> enables PyTorch to run on the <a href="https://www.intel.com/content/www/us/en/products/details/processors/ai-accelerators/gaudi.html" target="_blank" rel="noopener">Intel Gaudi AI Accelerator (HPU)</a> for large-scale LLM training and inference. Worked as a core developer on PyTorch development and LLM workload optimization for the Gaudi platform, serving as the technical lead for memory optimization.</li>
-                <li>Developed core modules in PyTorch such as memory management, stream / event management, and contributed to torch.compile features, including fixing dynamo graph breaks, enabling CompiledAutograd, and developing optimization passes.</li>
+                <li>Contributed to torch.compile end to end — improving dynamo graph capture, enabling CompiledAutograd, and developing optimization passes on the torch.fx graph IR; also developed PyTorch core modules such as memory management and stream / event management.</li>
                 <li>Analyzed and optimized memory usage across <strong>30+ LLM training / inference workloads</strong> (LLaMA, DeepSeek-V3.1, GLM) spanning different frameworks such as DeepSpeed, Megatron-LM, vLLM, and SGLang; built graph analysis based memory optimization methods on top of torch.compile, achieving up to <strong>~15% peak memory reduction</strong> for various models.</li>
                 <li>Developed memory analysis tools for device memory recording, analysis, and visualization; delivered to external customers.</li>
                 <li>Optimized DeepSeek-R1 model performance on <a href="https://github.com/HabanaAI/sglang-fork" target="_blank" rel="noopener">SGLang</a> for single-node 8&times; Gaudi3 inference using a TP8 + EP8 + FP8 KV-cache scheme, reaching <strong>~90%</strong> of the output-token throughput of Intel's optimized vLLM on the same 8&times; Gaudi3 setup.</li>
               </ul>
               <ul class="entry__list" lang="zh">
                 <li><a href="https://github.com/HabanaAI/gaudi-pytorch-bridge" target="_blank" rel="noopener">Intel Gaudi PyTorch Bridge</a> 使 PyTorch 能够运行在 <a href="https://www.intel.com/content/www/us/en/products/details/processors/ai-accelerators/gaudi.html" target="_blank" rel="noopener">Intel Gaudi AI 加速器 (HPU)</a> 上, 用于大规模 LLM 训练与推理. 作为核心开发者负责 Gaudi 平台的 PyTorch 开发与 LLM 工作负载优化, 并担任内存优化的技术负责人.</li>
-                <li>开发 PyTorch 核心模块, 如内存管理, stream / event 管理, 并参与 torch.compile 相关特性, 包括修复 dynamo graph break, 启用 CompiledAutograd, 开发优化 pass.</li>
+                <li>端到端参与 torch.compile——改善 dynamo 图捕获, 使能 CompiledAutograd, 基于 torch.fx graph IR 开发优化 pass; 同时开发 PyTorch 核心模块, 如内存管理, stream / event 管理.</li>
                 <li>分析并优化 <strong>30+ LLM 训练 / 推理工作负载</strong> (LLaMA, DeepSeek-V3.1, GLM) 的内存占用, 覆盖 DeepSpeed, Megatron-LM, vLLM, SGLang 等多种框架; 基于 torch.compile 构建了基于图分析的内存优化方法, 为多种模型实现最高 <strong>~15% 峰值内存下降</strong>.</li>
                 <li>开发用于设备内存记录, 分析与可视化的内存分析工具, 并交付给外部客户.</li>
                 <li>在 <a href="https://github.com/HabanaAI/sglang-fork" target="_blank" rel="noopener">SGLang</a> 上优化 DeepSeek-R1 单节点 8&times; Gaudi3 推理性能, 采用 TP8 + EP8 + FP8 KV-cache 方案, 达到同等 8&times; Gaudi3 配置下 Intel 优化版 vLLM 输出 token 吞吐的 <strong>~90%</strong>.</li>
