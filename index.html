@@ -95,28 +95,42 @@
 
             <div class="subentry">
               <div class="entry__head">
-                <h4 class="entry__subtitle"><span lang="en">GPU Kernel Optimization &amp; vLLM Workload Optimization</span><span lang="zh">GPU Kernel 优化与 vLLM 工作负载优化</span></h4>
+                <h4 class="entry__subtitle"><span lang="en">LLM Kernel / Workload Optimization on Intel Xe GPU</span><span lang="zh">Intel Xe GPU 上的 LLM Kernel / Workload 优化</span></h4>
                 <span class="entry__date">2025.07 — Present</span>
               </div>
               <ul class="entry__list" lang="en">
-                <li>Develop high-performance LLM kernels and optimize vLLM serving workloads on Intel Xe GPU, shipping kernels for popular LLMs across three generations of GPU architecture <strong>(Xe2 / Xe3 / Xe4)</strong> using Triton / SYCL / SYCL-TLA.</li>
-                <li>Optimized the SYCL-TLA based Gated DeltaNet (GDN) kernel on Xe2 GPU, achieving a <strong>1.6&times; speedup</strong> over the previous hand-tuned implementation across a range of shapes.</li>
-                <li>Developed kernels for key models (Hy3-FP8 / DeepSeek-V4) on Xe3 GPU, including BF16/FP8 GQA attention prefill/decode (<strong>~50% of roofline</strong>), the mHC skinny GEMM (TF32 + matrix engine, <strong>~90% of roofline</strong>), and FP8/MXFP4 mqa_logits (<strong>~40% of roofline</strong>).</li>
-                <li>Validated new hardware features for the next-generation Xe4 GPU and prototyped critical kernels on simulator. The optimized FlashAttention V3 prefill kernel reached <strong>93% of roofline</strong>.</li>
-                <li>Built a <strong>kernel-optimization agent</strong> on top of opencode harness, by adding custom command, loop control, kernel knowledge base and several optimization-related skills/tools; in early cases it delivered a <strong>1.8&times; speedup</strong> for FP8 mqa_logits on Xe2 and reached <strong>~85% of roofline</strong> for most memory-bound operators (e.g. RMSNorm) within a single optimization round.</li>
+                <li>Co-founded Intel's LLM kernel library for vLLM on Xe GPUs <strong>(Xe2 / Xe3P Crescent Island / Xe4)</strong>, delivering kernels for frontier models (DeepSeek-V3.2/V4, GLM-5.3, Qwen3.5, Hy3/Hy4).</li>
+                <li><strong>From kernel to workload:</strong> optimized the GDN linear-attention kernels of Qwen3.5 on Xe2 to <strong>4.6&times; faster prefill than Triton/FLA</strong>, then drove end-to-end TP4 serving on 4&times; Arc Pro B60 &mdash; root-caused a PCIe peer-write conflict in AllReduce and shipped a topology-aware communicator in oneCCL (<strong>35&times;</strong> bus bandwidth), and enabled XPU Graph to eliminate decode rank skew; <strong>TTFT &minus;87%, TPOT &minus;84%</strong>, no accuracy regression.</li>
+                <li><strong>Optimized frontier-model kernels to peak performance on Xe3P:</strong> delivered kernels for a strategic hyperscaler customer's KPI models on Crescent Island, reaching <strong>per-op parity with NVIDIA RTX PRO 5000</strong>.
+                  <ul>
+                    <li><strong>Sparse attention:</strong> led the DSA lightning indexer (FP8/MXFP4) for DeepSeek-V3.2/V4, reaching <strong>~73% of FP8 peak</strong> in prefill by keeping Q resident in registers and <strong>~98% of bandwidth</strong> in decode by raising occupancy.</li>
+                    <li><strong>Linear attention:</strong> led the KDA kernel suite for GLM-5.3-Flash: prefill <strong>outperforms FlashInfer on RTX PRO 5000</strong> (geomean); decode and speculative verify reach <strong>~97% of peak bandwidth</strong> by writing back the recurrent state with uncached stores so that it does not evict inputs from cache.</li>
+                    <li><strong>Hyper-connection:</strong> mHC/iHC for DeepSeek-V4 / Hy4 at <strong>~90% of roofline</strong>, running the FP32 skinny GEMM on the matrix engine via BF16x2 split precision.</li>
+                    <li><strong>Dense attention:</strong> FP8 GQA attention for Hy3.</li>
+                  </ul>
+                </li>
+                <li><strong>Pre-silicon kernel development (Xe4):</strong> prototyped FlashAttention-3 on the Xe4 simulator at <strong>93% of roofline</strong>, validating the new async execution model and hardware features (async DMA / MMA / barrier) and de-risking the toolchain ahead of silicon.</li>
+                <li><strong>Kernel agent system (XE-Agent):</strong> designed and built an autonomous kernel-optimization agent for Xe GPUs. It combines a roofline-guided plan / code / review loop, an expert-reviewed Xe knowledge base and a verification harness the agent cannot modify. Running unattended, it sped up already-tuned production kernels by up to <strong>1.9&times;</strong>, and turned a PyTorch spec into a FlashAttention prefill kernel <strong>20&times;</strong> faster in under an hour.</li>
               </ul>
               <ul class="entry__list" lang="zh">
-                <li>在 Intel Xe GPU 上开发高性能 LLM kernel 并优化 vLLM serving 工作负载, 使用 Triton / SYCL / SYCL-TLA 为主流 LLM 交付覆盖<strong>三代 GPU 架构 (Xe2 / Xe3 / Xe4)</strong>的 kernel.</li>
-                <li>在 Xe2 GPU 上优化基于 SYCL-TLA 的 Gated DeltaNet (GDN) kernel, 在多种 shape 下相较此前手工调优实现取得 <strong>1.6&times; 加速</strong>.</li>
-                <li>在 Xe3 GPU 上为关键模型 (Hy3-FP8 / DeepSeek-V4) 开发 kernel, 包括 BF16/FP8 GQA attention prefill/decode (<strong>~50% roofline</strong>), mHC skinny GEMM (TF32 + matrix engine, <strong>~90% roofline</strong>), 以及 FP8/MXFP4 mqa_logits (<strong>~40% roofline</strong>).</li>
-                <li>在 simulator 上为下一代 Xe4 GPU 验证新硬件特性并对关键 kernel 进行原型开发; 优化后的 FlashAttention V3 prefill kernel 达到 <strong>93% roofline</strong>.</li>
-                <li>基于 opencode harness 构建了一个 <strong>kernel 优化 agent</strong>, 加入自定义命令, 循环控制, kernel 知识库以及若干优化相关的 skills/tools; 在早期案例中为 Xe2 上的 FP8 mqa_logits 带来 <strong>1.8&times; 加速</strong>, 并在单轮优化内让多数访存受限算子 (如 RMSNorm) 达到 <strong>~85% roofline</strong>.</li>
+                <li>联合创建 Intel 面向 vLLM 的 Xe GPU (<strong>Xe2 / Xe3P Crescent Island / Xe4</strong>) LLM kernel 库, 为 DeepSeek-V3.2/V4, GLM-5.3, Qwen3.5, Hy3/Hy4 等前沿模型交付 kernel.</li>
+                <li><strong>从 Kernel 到 Workload:</strong> 在 Xe2 上优化 Qwen3.5 的 GDN linear attention kernel, prefill 比 Triton/FLA 快 <strong>4.6&times;</strong>; 进一步主导 4 卡 Arc Pro B60 上 TP4 的端到端调优 &mdash; 定位 AllReduce 中的 PCIe peer-write 冲突, 在 oneCCL 中实现 topology-aware communicator (bus bandwidth <strong>35&times;</strong>), 并启用 XPU Graph 消除 decode 阶段的 rank skew; <strong>TTFT &minus;87%, TPOT &minus;84%</strong>, 精度无回退.</li>
+                <li><strong>在 Xe3P 上将前沿模型 Kernel 优化至硬件峰值:</strong> 为战略级云客户的 KPI 模型交付 Crescent Island 上的 kernel, 逐个 kernel 达到与 <strong>NVIDIA RTX PRO 5000 持平</strong>.
+                  <ul>
+                    <li><strong>Sparse attention:</strong> 主导 DeepSeek-V3.2/V4 的 DSA lightning indexer (FP8/MXFP4): prefill 让 Q 常驻寄存器, 达到 <strong>~73% FP8 峰值算力</strong>; decode 提高 occupancy, 达到 <strong>~98% 峰值带宽</strong>.</li>
+                    <li><strong>Linear attention:</strong> 主导 GLM-5.3-Flash 的整套 KDA kernel: prefill 性能 <strong>超过 RTX PRO 5000 上的 FlashInfer</strong> (geomean); decode 与 speculative verify 通过将 state 写回改为 uncached store, 避免冲掉 input cache, 达到 <strong>~97% 峰值带宽</strong>.</li>
+                    <li><strong>Hyper-connection:</strong> DeepSeek-V4 / Hy4 的 mHC/iHC, 通过 BF16x2 拆分精度将 FP32 skinny GEMM 放到 matrix engine 上执行, 达到 <strong>~90% roofline</strong>.</li>
+                    <li><strong>Dense attention:</strong> Hy3 的 FP8 GQA attention.</li>
+                  </ul>
+                </li>
+                <li><strong>Xe4 pre-silicon kernel 开发:</strong> 在 Xe4 simulator 上实现 FlashAttention-3 原型, 达到 <strong>93% roofline</strong>, 在芯片交付前验证新的 async 执行模型与硬件特性 (async DMA / MMA / barrier), 并提前暴露 toolchain 风险.</li>
+                <li><strong>Kernel Agent 系统 (XE-Agent):</strong> 设计并构建面向 Xe GPU 的自主 kernel 优化 agent, 包含 roofline 引导的 plan / code / review 闭环, 经专家审核的 Xe 知识库, 以及 agent 无法篡改的验证 harness. 无人值守运行时, 将已调优的生产 kernel 再提速最高 <strong>1.9&times;</strong>; 从 PyTorch 参考实现出发, 不到 1 小时即生成 FlashAttention prefill kernel, 提速 <strong>20&times;</strong>.</li>
               </ul>
             </div>
 
             <div class="subentry">
               <div class="entry__head">
-                <h4 class="entry__subtitle"><span lang="en">Gaudi HPU PyTorch Development &amp; SGLang Workload Optimization</span><span lang="zh">Gaudi HPU PyTorch 开发与 SGLang 工作负载优化</span></h4>
+                <h4 class="entry__subtitle"><span lang="en">Gaudi HPU PyTorch Development &amp; SGLang Workload Optimization</span><span lang="zh">Gaudi HPU PyTorch 开发与 SGLang Workload 优化</span></h4>
                 <span class="entry__date">2023.09 — 2025.07</span>
               </div>
               <ul class="entry__list" lang="en">
@@ -127,9 +141,9 @@
                 <li>Optimized DeepSeek-R1 model performance on <a href="https://github.com/HabanaAI/sglang-fork" target="_blank" rel="noopener">SGLang</a> for single-node 8&times; Gaudi3 inference using a TP8 + EP8 + FP8 KV-cache scheme, reaching <strong>~90%</strong> of the output-token throughput of Intel's optimized vLLM on the same 8&times; Gaudi3 setup.</li>
               </ul>
               <ul class="entry__list" lang="zh">
-                <li><a href="https://github.com/HabanaAI/gaudi-pytorch-bridge" target="_blank" rel="noopener">Intel Gaudi PyTorch Bridge</a> 使 PyTorch 能够运行在 <a href="https://www.intel.com/content/www/us/en/products/details/processors/ai-accelerators/gaudi.html" target="_blank" rel="noopener">Intel Gaudi AI 加速器 (HPU)</a> 上, 用于大规模 LLM 训练与推理. 作为核心开发者负责 Gaudi 平台的 PyTorch 开发与 LLM 工作负载优化, 并担任内存优化的技术负责人.</li>
-                <li>端到端参与 torch.compile——改善 dynamo 图捕获, 使能 CompiledAutograd, 基于 torch.fx graph IR 开发优化 pass; 同时开发 PyTorch 核心模块, 如内存管理, stream / event 管理.</li>
-                <li>分析并优化 <strong>30+ LLM 训练 / 推理工作负载</strong> (LLaMA, DeepSeek-V3.1, GLM) 的内存占用, 覆盖 DeepSpeed, Megatron-LM, vLLM, SGLang 等多种框架; 基于 torch.compile 构建了基于图分析的内存优化方法, 为多种模型实现最高 <strong>~15% 峰值内存下降</strong>.</li>
+                <li><a href="https://github.com/HabanaAI/gaudi-pytorch-bridge" target="_blank" rel="noopener">Intel Gaudi PyTorch Bridge</a> 使 PyTorch 能够运行在 <a href="https://www.intel.com/content/www/us/en/products/details/processors/ai-accelerators/gaudi.html" target="_blank" rel="noopener">Intel Gaudi AI 加速器 (HPU)</a> 上, 用于大规模 LLM 训练与推理. 作为核心开发者负责 Gaudi 平台的 PyTorch 开发与 LLM workload 优化, 并担任内存优化的技术负责人.</li>
+                <li>端到端参与 torch.compile——改善 dynamo graph capture, 使能 CompiledAutograd, 基于 torch.fx graph IR 开发优化 pass; 同时开发 PyTorch 核心模块, 如内存管理, stream / event 管理.</li>
+                <li>分析并优化 <strong>30+ LLM 训练 / 推理 workload</strong> (LLaMA, DeepSeek-V3.1, GLM) 的内存占用, 覆盖 DeepSpeed, Megatron-LM, vLLM, SGLang 等多种框架; 基于 torch.compile 构建了基于图分析的内存优化方法, 为多种模型实现最高 <strong>~15% 峰值内存下降</strong>.</li>
                 <li>开发用于设备内存记录, 分析与可视化的内存分析工具, 并交付给外部客户.</li>
                 <li>在 <a href="https://github.com/HabanaAI/sglang-fork" target="_blank" rel="noopener">SGLang</a> 上优化 DeepSeek-R1 单节点 8&times; Gaudi3 推理性能, 采用 TP8 + EP8 + FP8 KV-cache 方案, 达到同等 8&times; Gaudi3 配置下 Intel 优化版 vLLM 输出 token 吞吐的 <strong>~90%</strong>.</li>
               </ul>
@@ -137,7 +151,7 @@
 
             <div class="subentry">
               <div class="entry__head">
-                <h4 class="entry__subtitle"><span lang="en">oneDNN Graph Compiler Development</span><span lang="zh">oneDNN Graph 编译器开发</span></h4>
+                <h4 class="entry__subtitle"><span lang="en">oneDNN Graph Compiler Development</span><span lang="zh">oneDNN Graph Compiler 开发</span></h4>
                 <span class="entry__date">2020.07 — 2023.09</span>
               </div>
               <ul class="entry__list" lang="en">
@@ -149,11 +163,11 @@
                 <li>Built GPU aggressive fusion and codegen that automatically fuses elementwise / reduction operators into efficient GPU kernels, improving InstanceNorm to <strong>~3.6&times;</strong> the oneDNN primitive on Intel ATS-M GPU.</li>
               </ul>
               <ul class="entry__list" lang="zh">
-                <li><a href="https://uxlfoundation.github.io/oneDNN/graph_extension.html" target="_blank" rel="noopener">oneDNN Graph</a> 是一个图编译器, 通过图 API 扩展 oneDNN, 用于编译和优化来自上层框架的计算图. 它已 <a href="https://pytorch.org/blog/accelerating-inference/" target="_blank" rel="noopener">集成进 PyTorch</a> 以加速模型推理. 作为核心团队成员, 负责 DNNL backend 与 backend API.</li>
+                <li><a href="https://uxlfoundation.github.io/oneDNN/graph_extension.html" target="_blank" rel="noopener">oneDNN Graph</a> 是一个 graph compiler, 通过 graph API 扩展 oneDNN, 用于编译和优化来自上层框架的计算图. 它已 <a href="https://pytorch.org/blog/accelerating-inference/" target="_blank" rel="noopener">集成进 PyTorch</a> 以加速模型推理. 作为核心团队成员, 负责 DNNL backend 与 backend API.</li>
                 <li>设计了 backend API, 并被采纳为所有 backend (包括 DNNL, XeTLA 等) 的集成接口.</li>
                 <li>端到端设计并实现了 DNNL backend——定义其 DNNL IR 并在其上构建编译 pass, 包括 IR lowering, kernel fusion, layout propagation 与 memory planning.</li>
                 <li>在 DNNL backend 中为一系列关键基准模型 (如 ResNet50, BERT, DLRM) 启用 INT8 量化推理, 在 Intel SPR CPU 上相较 FP32 实现最高 <strong>~3&times;</strong> 的吞吐.</li>
-                <li>引入大图编译以降低小图调度与频繁内存操作带来的开销, 在 Intel SPR CPU 上将 ResNet50 INT8 延迟降低 <strong>~15%</strong>, DenseNet121 FP32 延迟降低 <strong>~80%</strong>.</li>
+                <li>引入 large-graph compilation 以降低小图调度与频繁内存操作带来的开销, 在 Intel SPR CPU 上将 ResNet50 INT8 延迟降低 <strong>~15%</strong>, DenseNet121 FP32 延迟降低 <strong>~80%</strong>.</li>
                 <li>构建 GPU aggressive fusion 与 codegen, 自动将 elementwise / reduction 算子融合为高效 GPU kernel, 在 Intel ATS-M GPU 上将 InstanceNorm 提升至 oneDNN primitive 的 <strong>~3.6&times;</strong>.</li>
               </ul>
             </div>
@@ -200,27 +214,6 @@
             </div>
           </div>
         </div>
-      </div>
-    </section>
-
-    <!-- ===================== OPEN SOURCE ===================== -->
-    <section class="row">
-      <div class="row__label"><span lang="en">OPEN-SOURCE CONTRIBUTIONS</span><span lang="zh">开源贡献</span></div>
-      <div class="row__body" lang="en">
-        <dl class="skills">
-          <div class="skill"><dt><a href="https://github.com/uxlfoundation/oneDNN/commits/main/?author=YangQun1" target="_blank" rel="noopener">oneDNN</a></dt><dd>backend API and DNNL backend</dd></div>
-          <div class="skill"><dt><a href="https://github.com/pytorch/pytorch/commits/main/?author=YangQun1" target="_blank" rel="noopener">PyTorch</a></dt><dd>torch.compile / FX graph</dd></div>
-          <div class="skill"><dt><a href="https://github.com/vllm-project/vllm-xpu-kernels/commits/main/?author=YangQun1" target="_blank" rel="noopener">vllm-xpu-kernels</a></dt><dd>Intel XPU LLM kernels</dd></div>
-          <div class="skill"><dt><a href="https://github.com/sgl-project/sglang/commits/main/?author=YangQun1" target="_blank" rel="noopener">SGLang</a></dt><dd>Intel Gaudi HPU enablement</dd></div>
-        </dl>
-      </div>
-      <div class="row__body" lang="zh">
-        <dl class="skills">
-          <div class="skill"><dt><a href="https://github.com/uxlfoundation/oneDNN/commits/main/?author=YangQun1" target="_blank" rel="noopener">oneDNN</a></dt><dd>backend API 与 DNNL backend</dd></div>
-          <div class="skill"><dt><a href="https://github.com/pytorch/pytorch/commits/main/?author=YangQun1" target="_blank" rel="noopener">PyTorch</a></dt><dd>torch.compile / FX graph</dd></div>
-          <div class="skill"><dt><a href="https://github.com/vllm-project/vllm-xpu-kernels/commits/main/?author=YangQun1" target="_blank" rel="noopener">vllm-xpu-kernels</a></dt><dd>Intel XPU LLM kernel</dd></div>
-          <div class="skill"><dt><a href="https://github.com/sgl-project/sglang/commits/main/?author=YangQun1" target="_blank" rel="noopener">SGLang</a></dt><dd>Intel Gaudi HPU enablement</dd></div>
-        </dl>
       </div>
     </section>
 
