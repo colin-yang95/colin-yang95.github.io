@@ -227,6 +227,11 @@ a:hover { text-decoration: underline; }
 .entry__list li {
   margin: 4px 0;
 }
+.entry__list ul {
+  margin: 2px 0 0;
+  padding-left: 16px;
+}
+.entry__list ul li { margin: 2px 0; }
 .entry__list--flush { list-style: none; padding-left: 0; }
 .entry__list--flush li { margin: 6px 0; }
 
