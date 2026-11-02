@@ -109,12 +109,12 @@
                 <li><strong>Frontier-model kernels on Xe3P:</strong> delivered Crescent Island kernels for a strategic hyperscaler customer's KPI models, reaching <strong>per-op parity with FlashInfer on NVIDIA RTX PRO 5000</strong>.
                   <ul>
                     <li><strong>Sparse attention:</strong> led DSA lightning indexer kernels (FP8/MXFP4) for DeepSeek-V3.2/V4/V4.1. Prefill reaches <strong>~73% of FP8 peak</strong> by keeping Q resident in registers; decode reaches <strong>~98% of peak bandwidth</strong> by raising occupancy.</li>
-                    <li><strong>Linear attention:</strong> led the KDA kernel suite for GLM-5.3-Flash. Prefill <strong>outperforms FlashInfer on RTX PRO 5000</strong> (geomean); decode and speculative verify reach <strong>~97% of peak bandwidth</strong> by using uncached state stores to prevent cache eviction.</li>
-                    <li><strong>Hyper-connection:</strong> mHC/iHC and delayed mHC kernels for DeepSeek-V4/V4.1 / Hy4 at <strong>~90% of roofline</strong>, running the FP32 skinny GEMM on the matrix engine via BF16x2 split precision.</li>
+                    <li><strong>Linear attention:</strong> led the KDA kernel suite for GLM-5.3-Flash. Prefill <strong>outperforms FlashInfer on RTX PRO 5000</strong> (geomean); decode and speculative decoding verification reach <strong>~97% of peak bandwidth</strong> by using uncached state stores to prevent cache eviction.</li>
+                    <li><strong>Hyper-connection:</strong> mHC/iHC and delayed mHC kernels for DeepSeek-V4/V4.1 / Hy4 at <strong>~90% of the roofline performance bound</strong>, running the FP32 skinny GEMM on the matrix engine via BF16x2 split precision.</li>
                     <li><strong>Dense attention:</strong> FP8 GQA attention for Hy3.</li>
                   </ul>
                 </li>
-                <li><strong>Pre-silicon kernel development (Xe4):</strong> prototyped FlashAttention-3 on the Xe4 simulator at <strong>93% of roofline</strong>, validating the new async execution model and hardware features (async DMA / MMA / barrier) and de-risking the toolchain ahead of silicon.</li>
+                <li><strong>Pre-silicon kernel development (Xe4):</strong> prototyped FlashAttention-3 on the Xe4 simulator at <strong>93% of the roofline performance bound</strong>, validating the new async execution model and hardware features (async DMA / MMA / barrier) and de-risking the toolchain ahead of silicon.</li>
                 <li><strong>Kernel optimization agent (XE-Agent):</strong> designed and built an autonomous Xe GPU kernel-optimization system with a roofline-guided plan / code / review loop and an expert-reviewed knowledge base. Unattended runs improved already-tuned production kernels by up to <strong>1.9&times;</strong> and generated a FlashAttention prefill kernel in <strong>under an hour</strong>, running <strong>20&times;</strong> faster than the PyTorch reference.</li>
               </ul>
               <ul class="entry__list" lang="zh">
@@ -128,12 +128,12 @@
                 <li><strong>Xe3P 前沿模型 Kernel 优化:</strong> 为战略级云客户的 KPI 模型交付 Crescent Island 上的 kernel, 算子级性能达到 <strong>NVIDIA RTX PRO 5000 上的 FlashInfer 水平</strong>.
                   <ul>
                     <li><strong>Sparse attention:</strong> 主导 DeepSeek-V3.2/V4/V4.1 的 DSA lightning indexer kernel (FP8/MXFP4); prefill 让 Q 常驻寄存器, 达到 <strong>~73% FP8 峰值算力</strong>; decode 提高 occupancy, 达到 <strong>~98% 峰值带宽</strong>.</li>
-                    <li><strong>Linear attention:</strong> 主导 GLM-5.3-Flash 的整套 KDA kernel: prefill 性能 <strong>超过 RTX PRO 5000 上的 FlashInfer</strong> (geomean); decode 与 speculative verify 通过 uncached state store 避免缓存驱逐, 达到 <strong>~97% 峰值带宽</strong>.</li>
-                    <li><strong>Hyper-connection:</strong> DeepSeek-V4/V4.1 / Hy4 的 mHC/iHC 与 delayed mHC kernel, 通过 BF16x2 拆分精度将 FP32 skinny GEMM 放到 matrix engine 上执行, 达到 <strong>~90% roofline</strong>.</li>
+                    <li><strong>Linear attention:</strong> 主导 GLM-5.3-Flash 的整套 KDA kernel: prefill 性能 <strong>超过 RTX PRO 5000 上的 FlashInfer</strong> (geomean); decode 与 speculative decoding verification 阶段通过 uncached state store 避免缓存驱逐, 达到 <strong>~97% 峰值带宽</strong>.</li>
+                    <li><strong>Hyper-connection:</strong> DeepSeek-V4/V4.1 / Hy4 的 mHC/iHC 与 delayed mHC kernel, 通过 BF16x2 拆分精度将 FP32 skinny GEMM 放到 matrix engine 上执行, 达到 <strong>roofline 理论性能上限的 ~90%</strong>.</li>
                     <li><strong>Dense attention:</strong> Hy3 的 FP8 GQA attention.</li>
                   </ul>
                 </li>
-                <li><strong>Xe4 pre-silicon kernel 开发:</strong> 在 Xe4 simulator 上实现 FlashAttention-3 原型, 达到 <strong>93% roofline</strong>, 在芯片交付前验证新的 async 执行模型与硬件特性 (async DMA / MMA / barrier), 并提前暴露 toolchain 风险.</li>
+                <li><strong>Xe4 pre-silicon kernel 开发:</strong> 在 Xe4 simulator 上实现 FlashAttention-3 原型, 达到 <strong>roofline 理论性能上限的 93%</strong>, 在芯片交付前验证新的 async 执行模型与硬件特性 (async DMA / MMA / barrier), 并提前暴露 toolchain 风险.</li>
                 <li><strong>Kernel 优化 Agent (XE-Agent):</strong> 设计并构建 Xe GPU 自主 kernel 优化系统, 包含 roofline 引导的 plan / code / review 闭环与经专家审核的知识库. 无人值守运行将已调优的生产 kernel 再提速最高 <strong>1.9&times;</strong>; 在 <strong>不到 1 小时</strong>内生成 FlashAttention prefill kernel, 性能为 PyTorch 参考实现的 <strong>20&times;</strong>.</li>
               </ul>
             </div>
