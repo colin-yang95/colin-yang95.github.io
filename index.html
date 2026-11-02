@@ -60,7 +60,7 @@
       <div class="row__label"><span lang="en">SKILLS</span><span lang="zh">技能</span></div>
       <div class="row__body" lang="en">
         <dl class="skills">
-          <div class="skill"><dt>LLM Inference</dt><dd>vLLM, SGLang; end-to-end profiling and optimization, memory optimization, low-precision inference (INT8/FP8/FP4), multi-GPU inference</dd></div>
+          <div class="skill"><dt>LLM Inference</dt><dd>vLLM; end-to-end profiling and optimization, memory optimization, low-precision inference (INT8/FP8/FP4), multi-GPU inference</dd></div>
           <div class="skill"><dt>GPU Kernel Engineering</dt><dd>SYCL / SYCL-TLA (Intel GPU extensions to CUTLASS/CuTe), Triton; architecture-aware kernel optimization, performance modeling, profiling and bottleneck analysis, pre-silicon simulation; Intel / NVIDIA GPU architecture</dd></div>
           <div class="skill"><dt>AI Compiler Development</dt><dd>oneDNN Graph; backend and IR design, IR lowering, operator fusion, layout propagation, memory planning, codegen</dd></div>
           <div class="skill"><dt>AI Framework Development</dt><dd>PyTorch; torch.compile graph capture and graph optimization, CompiledAutograd, device-memory management, stream / event management</dd></div>
@@ -69,7 +69,7 @@
       </div>
       <div class="row__body" lang="zh">
         <dl class="skills">
-          <div class="skill"><dt>LLM 推理</dt><dd>vLLM, SGLang; 端到端性能分析与优化, 内存优化, 低精度推理 (INT8/FP8/FP4), 多卡推理</dd></div>
+          <div class="skill"><dt>LLM 推理</dt><dd>vLLM; 端到端性能分析与优化, 内存优化, 低精度推理 (INT8/FP8/FP4), 多卡推理</dd></div>
           <div class="skill"><dt>GPU Kernel 工程</dt><dd>SYCL / SYCL-TLA (CUTLASS/CuTe 的 Intel GPU 扩展), Triton; 面向硬件架构的 kernel 优化, 性能建模, profiling 与瓶颈分析, pre-silicon simulation; Intel / NVIDIA GPU 架构</dd></div>
           <div class="skill"><dt>AI 编译器开发</dt><dd>oneDNN Graph; backend 与 IR 设计, IR lowering, operator fusion, layout propagation, memory planning, codegen</dd></div>
           <div class="skill"><dt>AI 框架开发</dt><dd>PyTorch; torch.compile graph capture 与 graph optimization, CompiledAutograd, 设备内存管理, stream / event 管理</dd></div>
@@ -111,7 +111,6 @@
                     <li><strong>Sparse attention:</strong> led DSA lightning indexer kernels (FP8/MXFP4) for DeepSeek-V3.2/V4/V4.1. Prefill reaches <strong>~73% of FP8 peak</strong> by keeping Q resident in registers; decode reaches <strong>~98% of peak bandwidth</strong> by raising occupancy.</li>
                     <li><strong>Linear attention:</strong> led the KDA kernel suite for GLM-5.3-Flash. Prefill <strong>outperforms FlashInfer on RTX PRO 5000</strong> (geomean); decode and speculative decoding verification reach <strong>~97% of peak bandwidth</strong> by using uncached state stores to prevent cache eviction.</li>
                     <li><strong>Hyper-connection:</strong> mHC/iHC and delayed mHC kernels for DeepSeek-V4/V4.1 / Hy4 at <strong>~90% of the roofline performance bound</strong>, running the FP32 skinny GEMM on the matrix engine via BF16x2 split precision.</li>
-                    <li><strong>Dense attention:</strong> FP8 GQA attention for Hy3.</li>
                   </ul>
                 </li>
                 <li><strong>Pre-silicon kernel development (Xe4):</strong> prototyped FlashAttention-3 on the Xe4 simulator at <strong>93% of the roofline performance bound</strong>, validating the new async execution model and hardware features (async DMA / MMA / barrier) and de-risking the toolchain ahead of silicon.</li>
@@ -130,7 +129,6 @@
                     <li><strong>Sparse attention:</strong> 主导 DeepSeek-V3.2/V4/V4.1 的 DSA lightning indexer kernel (FP8/MXFP4); prefill 让 Q 常驻寄存器, 达到 <strong>~73% FP8 峰值算力</strong>; decode 提高 occupancy, 达到 <strong>~98% 峰值带宽</strong>.</li>
                     <li><strong>Linear attention:</strong> 主导 GLM-5.3-Flash 的整套 KDA kernel: prefill 性能 <strong>超过 RTX PRO 5000 上的 FlashInfer</strong> (geomean); decode 与 speculative decoding verification 阶段通过 uncached state store 避免缓存驱逐, 达到 <strong>~97% 峰值带宽</strong>.</li>
                     <li><strong>Hyper-connection:</strong> DeepSeek-V4/V4.1 / Hy4 的 mHC/iHC 与 delayed mHC kernel, 通过 BF16x2 拆分精度将 FP32 skinny GEMM 放到 matrix engine 上执行, 达到 <strong>roofline 理论性能上限的 ~90%</strong>.</li>
-                    <li><strong>Dense attention:</strong> Hy3 的 FP8 GQA attention.</li>
                   </ul>
                 </li>
                 <li><strong>Xe4 pre-silicon kernel 开发:</strong> 在 Xe4 simulator 上实现 FlashAttention-3 原型, 达到 <strong>roofline 理论性能上限的 93%</strong>, 在芯片交付前验证新的 async 执行模型与硬件特性 (async DMA / MMA / barrier), 并提前暴露 toolchain 风险.</li>
@@ -140,22 +138,20 @@
 
             <div class="subentry">
               <div class="entry__head">
-                <h4 class="entry__subtitle"><span lang="en">Gaudi HPU PyTorch Development &amp; SGLang Workload Optimization</span><span lang="zh">Gaudi HPU PyTorch 开发与 SGLang Workload 优化</span></h4>
+                <h4 class="entry__subtitle"><span lang="en">Gaudi HPU PyTorch Development &amp; LLM Workload Optimization</span><span lang="zh">Gaudi HPU PyTorch 开发与 LLM Workload 优化</span></h4>
                 <span class="entry__date">2023.09 — 2025.07</span>
               </div>
               <ul class="entry__list" lang="en">
                 <li>Core developer of <a href="https://github.com/HabanaAI/gaudi-pytorch-bridge" target="_blank" rel="noopener">Intel Gaudi PyTorch Bridge</a> for LLM training and inference; served as <strong>technical lead for memory optimization</strong> across PyTorch and Gaudi workloads.</li>
                 <li>Developed torch.compile support across TorchDynamo graph capture, CompiledAutograd and torch.fx optimization passes, alongside PyTorch device-memory and stream / event management.</li>
-                <li>Built graph-analysis-based memory optimizations on torch.compile, reducing peak memory by up to <strong>~15%</strong>. Analyzed and optimized <strong>30+ LLM training / inference workloads</strong> (LLaMA, DeepSeek-V3.1, GLM) across DeepSpeed, Megatron-LM, vLLM and SGLang.</li>
+                <li>Built graph-analysis-based memory optimizations on torch.compile, reducing peak memory by up to <strong>~15%</strong>. Analyzed and optimized <strong>30+ LLM training / inference workloads</strong> (LLaMA, DeepSeek-V3.1, GLM) across DeepSpeed, Megatron-LM and vLLM.</li>
                 <li>Built device-memory recording, analysis and visualization tools and delivered them to external customers.</li>
-                <li>Optimized DeepSeek-R1 inference on <a href="https://github.com/HabanaAI/sglang-fork" target="_blank" rel="noopener">SGLang</a> with TP8 + EP8 + FP8 KV cache on a single 8&times; Gaudi3 node, reaching <strong>~90%</strong> of the output-token throughput of Intel's optimized vLLM on the same hardware.</li>
               </ul>
               <ul class="entry__list" lang="zh">
                 <li><a href="https://github.com/HabanaAI/gaudi-pytorch-bridge" target="_blank" rel="noopener">Intel Gaudi PyTorch Bridge</a> 核心开发者, 支持 LLM 训练与推理; 担任 <strong>内存优化技术负责人</strong>, 覆盖 PyTorch 与 Gaudi workload.</li>
                 <li>开发 torch.compile 支持, 覆盖 TorchDynamo graph capture, CompiledAutograd 与 torch.fx 优化 pass; 同时开发 PyTorch 设备内存与 stream / event 管理模块.</li>
-                <li>在 torch.compile 上构建基于图分析的内存优化方法, 将峰值内存降低最高 <strong>~15%</strong>. 分析并优化 <strong>30+ LLM 训练 / 推理 workload</strong> (LLaMA, DeepSeek-V3.1, GLM), 覆盖 DeepSpeed, Megatron-LM, vLLM 与 SGLang.</li>
+                <li>在 torch.compile 上构建基于图分析的内存优化方法, 将峰值内存降低最高 <strong>~15%</strong>. 分析并优化 <strong>30+ LLM 训练 / 推理 workload</strong> (LLaMA, DeepSeek-V3.1, GLM), 覆盖 DeepSpeed, Megatron-LM 与 vLLM.</li>
                 <li>构建设备内存记录, 分析与可视化工具, 并交付给外部客户.</li>
-                <li>在单节点 8&times; Gaudi3 上优化 DeepSeek-R1 的 <a href="https://github.com/HabanaAI/sglang-fork" target="_blank" rel="noopener">SGLang</a> 推理, 采用 TP8 + EP8 + FP8 KV cache, 达到同等硬件上 Intel 优化版 vLLM 输出 token 吞吐的 <strong>~90%</strong>.</li>
               </ul>
             </div>
 
