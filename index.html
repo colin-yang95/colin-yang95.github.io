@@ -114,7 +114,7 @@
                   </ul>
                 </li>
                 <li><strong>Pre-silicon kernel development (Xe4):</strong> prototyped FlashAttention-3 on the Xe4 simulator at <strong>93% of the roofline performance bound</strong>, validating the new async execution model and hardware features (async DMA / MMA / barrier) and de-risking the toolchain ahead of silicon.</li>
-                <li><strong>Kernel optimization agent (XE-Agent):</strong> designed and built an autonomous Xe GPU kernel-optimization system with a roofline-guided plan / code / review loop and an expert-reviewed knowledge base. Unattended runs improved already-tuned production kernels by up to <strong>1.9&times;</strong> and generated a FlashAttention prefill kernel in <strong>under an hour</strong>, running <strong>20&times;</strong> faster than the PyTorch reference.</li>
+                <li><strong>Kernel optimization agent (XE-Agent):</strong> designed and built an autonomous Xe GPU kernel-optimization system with a roofline-guided plan / code / review loop and an expert-reviewed knowledge base. On Xe3P DSA indexer production kernels, each task ran unattended for only a few hours, reaching up to <strong>2.1&times;</strong> geomean speedup, bringing decode kernels to <strong>85&ndash;96% of the roofline performance bound</strong>, and pushing a customer-critical case <strong>past NVIDIA RTX PRO 5000</strong>.</li>
               </ul>
               <ul class="entry__list" lang="zh">
                 <li>联合创建面向多代 Intel GPU 的 LLM 推理 kernel 库, 参与架构设计, 并交付面向生产的高性能 GPU kernel.</li>
@@ -132,7 +132,7 @@
                   </ul>
                 </li>
                 <li><strong>Xe4 pre-silicon kernel 开发:</strong> 在 Xe4 simulator 上实现 FlashAttention-3 原型, 达到 <strong>roofline 理论性能上限的 93%</strong>, 在芯片交付前验证新的 async 执行模型与硬件特性 (async DMA / MMA / barrier), 并提前暴露 toolchain 风险.</li>
-                <li><strong>Kernel 优化 Agent (XE-Agent):</strong> 设计并构建 Xe GPU 自主 kernel 优化系统, 包含 roofline 引导的 plan / code / review 闭环与经专家审核的知识库. 无人值守运行将已调优的生产 kernel 再提速最高 <strong>1.9&times;</strong>; 在 <strong>不到 1 小时</strong>内生成 FlashAttention prefill kernel, 性能为 PyTorch 参考实现的 <strong>20&times;</strong>.</li>
+                <li><strong>Kernel 优化 Agent (XE-Agent):</strong> 设计并构建 Xe GPU 自主 kernel 优化系统, 包含 roofline 引导的 plan / code / review 闭环与经专家审核的知识库. 在 Xe3P 的 DSA indexer 生产 kernel 上, 单个任务仅需无人值守运行数小时, 几何平均加速最高 <strong>2.1&times;</strong>, decode kernel 达到 <strong>roofline 理论性能上限的 85&ndash;96%</strong>, 并使客户关键用例 <strong>超过 NVIDIA RTX PRO 5000</strong>.</li>
               </ul>
             </div>
 
